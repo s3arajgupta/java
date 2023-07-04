@@ -1,3 +1,5 @@
+package LeetCode75_level1;
+
 class Solution {
     public int pivotIndex(int[] nums) {
 
