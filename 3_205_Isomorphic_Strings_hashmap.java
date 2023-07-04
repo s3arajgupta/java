@@ -5,6 +5,9 @@
 // Space complexity:
 // The space complexity of the above solution is O(k), where k is the number of unique characters in the input strings. This is because we are using a HashMap to store the mappings between characters in the two strings and the size of the HashMap can grow up to the number of unique characters in the input strings.
 
+import java.util.HashMap; 
+import java.util.Map; 
+
 class Solution {
     public boolean isIsomorphic(String s, String t) {
         if (s == null || t == null)
