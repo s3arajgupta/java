@@ -1,0 +1,12 @@
+@: to find functions
+Ctrl Shift + "."
+
+Alt arrow: to move lines
+Alt Shift to copy lines
+Create nested folder and files
+ 
+code snippets in extensions
+
+There are 2 hard things in computer science.
+Cache Invalidation and Naming Things.
+Right click + Find all references.
