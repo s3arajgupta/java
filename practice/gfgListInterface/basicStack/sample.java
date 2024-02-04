@@ -2,7 +2,7 @@ package practice.gfgListInterface.basicStack;
 
 // Java code for stack implementation
 
-import java.io.*;
+// import java.io.*;
 import java.util.*;
 
 class sample
