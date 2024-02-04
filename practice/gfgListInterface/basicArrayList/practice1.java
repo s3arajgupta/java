@@ -1,8 +1,10 @@
 package practice.gfgListInterface.basicArrayList;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 
 public class practice1 {
     
@@ -41,20 +43,76 @@ public class practice1 {
 
         List<String> colorsCopy = new ArrayList<>();
 
+        // System.out.println(colorsCopy.size());
+
+        colorsCopy.add("A");
+        colorsCopy.add("B");
+        colorsCopy.add("C");
+        colorsCopy.add("D");
+
         // colorsCopy.addAll(colors);
-        Collections.copy(colors, colorsCopy);
+        Collections.copy(colorsCopy, colors);
         System.out.println(colorsCopy);
+        
+        Collections.shuffle(colors);
+        System.out.println("shuffle " + colors);
+        
+        Collections.reverse(colors);
+        System.out.println("reverse " + colors);
+    
 
-        // List<Integer> nums = new ArrayList<>();
+        List <String> colorMod = colors.subList(0, 2);
 
-        // nums.add(1);
-        // nums.add(2);
-        // nums.add(3);
+        System.out.println("mod " + colorMod);
+        System.out.println(new ArrayList<>(colors.subList(1, 3)));
+        System.out.println(new ArrayList<>(colors.subList(1, 2)));
 
-        // // System.out.println(nums);
-        // for(Integer i : nums){
-        //     System.out.println(i);
-        // }
 
+        colorMod.add("beige");
+        List<String> colorCom = new ArrayList<>();
+        for (String s : colors)
+            colorCom.add(colorMod.contains(s)? "Yes" : "No");
+
+        System.out.println(colorCom);
+
+    
+        Collections.swap(colorCom, 2, 3);
+        System.out.println(colorCom);
+
+        List <String> colorJoin = new ArrayList<>();
+        colorJoin.addAll(colorCom);
+        colorJoin.addAll(colors);
+        System.out.println("Join " + colorJoin);
+
+        // List<String> colorClone = new ArrayList<>();
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // colorClone.add("null");
+        // System.out.println("colorCloneNull " + colorClone);  
+        // Collections.copy(colorClone, colorJoin);
+
+        // ArrayList<String> colorClone = (ArrayList<String>)colorCom.clone();
+        // System.out.println("colorCloneNew " + colorClone);
+
+
+        colorCom.removeAll(colorCom);
+        System.out.println(colorCom);
+
+        System.out.println(colorCom.isEmpty());
+
+        // colors.trimToSize(); ###############################
+
+        // System.out.println(colorCom.ens);
+        // colorCom.ensureCapacity(6)
+
+        
+        
     }
 }
