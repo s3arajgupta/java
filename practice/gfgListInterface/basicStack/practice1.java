@@ -1,7 +1,7 @@
 package practice.gfgListInterface.basicStack;
 
 import java.util.Stack;
-import java.util.List;
+// import java.util.List;
 
 public class practice1 {
 
@@ -24,7 +24,7 @@ public class practice1 {
 
         System.out.println("stackEmptyOrNot " + stack.isEmpty());
 
-        
+
         
 
     }
