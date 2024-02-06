@@ -29,7 +29,7 @@ public class infixToPostfix {
 
             char c = s.charAt(i);
 
-            if ((c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A') || (c <= '9' && c >= '0'))
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
                 result.append(c);
             else if (c == '(')
                 stack.push(c);
@@ -46,6 +46,10 @@ public class infixToPostfix {
                 }
                 stack.push(c);
             }
+
+            System.out.println(i);
+            System.out.println(stack);
+            System.out.println(result);
         }
 
         while(!stack.isEmpty()){
