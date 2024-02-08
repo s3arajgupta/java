@@ -2,7 +2,7 @@ package practice.gfgListInterface.basicStack;
 
 import java.util.Stack;
 
-public class infixToPostfixpractice {
+public class practiceInfixToPostfix {
     
     public static int prec (char c){
 
