@@ -3,10 +3,10 @@ package practice.gfgListInterface.basicStack;
 /* Java program to reverse
 String using Stack */
 
-import java.util.*;
+// import java.util.*;
 
 // stack
-class Stack {
+class practice3 {
 	int size;
 	int top;
 	char[] a;
@@ -14,7 +14,7 @@ class Stack {
 	// function to check if stack is empty
 	boolean isEmpty() { return (top < 0); }
 
-	Stack(int n)
+	practice3(int n)
 	{
 		top = -1;
 		size = n;
@@ -56,7 +56,7 @@ class Main {
 		// Create a stack of capacity
 		// equal to length of string
 		int n = str.length();
-		Stack obj = new Stack(n);
+		practice3 obj = new practice3(n);
 
 		// Push all characters of string
 		// to stack
