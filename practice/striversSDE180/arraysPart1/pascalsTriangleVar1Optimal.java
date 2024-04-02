@@ -1,14 +1,15 @@
-package practice.striversSDE180.arrays;
+package practice.striversSDE180.arraysPart1;
 
-class pascalsTriangleVar2Brute{
+class pascalsTriangleVar1Optimal{
     
     public static void main (String args[]){
         
-        int n = 5;
+        int n = 11;
+        int r = 8;
 
-        for(int i = 1; i <= n; i++)
-            System.out.print(pascalsTriangleFunc(n-1, n-i) + " ");
-        
+        int res = pascalsTriangleFunc(n-1, r-1);
+
+        System.out.println(res);
     }
     
     static int pascalsTriangleFunc(int n, int r){
@@ -19,8 +20,9 @@ class pascalsTriangleVar2Brute{
             res*=(n-i);
             res/=(i+1);
         }
-        return res;
 
+        return res;
     }
+    
 }
 

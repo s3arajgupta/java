@@ -1,12 +1,11 @@
-package practice.striversSDE180.arrays;
+package practice.striversSDE180.arraysPart1;
 
-class Solution {
-    public void setZeroes(int[][] matrix) {
+class setMatrixZerosOptimal {
+    
+    static int[][] setZeroes(int[][] matrix, int m, int n) {
         
         int col = 1;
-        int m = matrix.length;
-        int n = matrix[0].length;
-                
+        
         for(int i = 0; i < m; i++)
             if (matrix[0][i] == 0){
                 col = 0;
@@ -51,5 +50,26 @@ class Solution {
             for(int i = 0; i < m; i++)
                 matrix[i][0] = 0;
 
+        return matrix;
+    }
+
+    public static void main (String args[]){
+
+        int[][] matrix = {{1,1,1},{0,1,1},{1,1,0}};
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        
+        matrix = setZeroes(matrix, m, n);
+        
+        System.out.println("Answer");
+        // System.out.println(ans);
+        // OR
+        for (int[] row : matrix){
+            for (int ele : row){
+                System.out.print(ele + " ");
+            }
+            System.out.println();
+        }
     }
 }

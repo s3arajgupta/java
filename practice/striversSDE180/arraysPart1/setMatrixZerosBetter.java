@@ -4,7 +4,7 @@
 // Space Complexity: O(N) + O(M), where N = no. of rows in the matrix and M = no. of columns in the matrix.
 // Reason: O(N) is for using the row array and O(M) is for using the col array.
 
-package practice.striversSDE180.arrays;
+package practice.striversSDE180.arraysPart1;
 
 import java.util.ArrayList;
 import java.util.Arrays;

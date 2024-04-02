@@ -4,7 +4,7 @@
 
 // Space Complexity: O(1) as we are not using any extra space.
 
-package practice.striversSDE180.arrays;
+package practice.striversSDE180.arraysPart1;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -3,7 +3,7 @@
 
 // Space Complexity: Since no extra storage is required. Thus, its space complexity is O(1).
 
-package practice.striversSDE180.arrays;
+package practice.striversSDE180.arraysPart1;
 
 public class nextPermutation {
     

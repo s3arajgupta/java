@@ -1,4 +1,4 @@
-package practice.striversSDE180.arrays;
+package practice.striversSDE180.arraysPart1;
 
 public class stockBuyAndSell {
 
