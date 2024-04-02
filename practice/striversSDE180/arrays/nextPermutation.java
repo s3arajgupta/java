@@ -9,12 +9,12 @@ public class nextPermutation {
     
     public static void main(String args[]){
 
+        int[] nums = {2, 1, 5, 4, 3, 0, 0};
         // int[] nums = {1,3,2};
         // int[] nums = {1, 2};
-        int[] nums = {2, 1, 5, 4, 3, 0, 0};
         // int[] nums = {7, 6, 5, 4, 3, 0, 0};
-        int [] ans = nextPermutationFunc(nums);
-        // System.out.println(ans.toString());
+
+        nums = nextPermutationFunc(nums);
         for (int i = 0; i < nums.length; i++)
             System.out.print(nums[i] + " ");
     }
