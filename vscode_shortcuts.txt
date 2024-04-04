@@ -1,5 +1,7 @@
 @: to find functions
 Ctrl Shift + "."
+Ctrl Shift + "[]"
+
 
 Alt arrow: to move lines
 Alt Shift to copy lines
