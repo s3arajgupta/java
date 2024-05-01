@@ -2,8 +2,6 @@ package practice.striversSDE180.arraysPart2;
 
 import java.util.*;
 
-import practice.striversSDE180.arraysPart1.nextPermutation;
-
 public class mergeOverlappingSubIntervalsBrute {
 
     public static void main(String[] args) {
