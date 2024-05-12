@@ -1,4 +1,7 @@
-// Do This Propperly Again
+// Input: s = "pwwkew"
+// Output: 3
+// Explanation: The answer is "wke", with the length of 3.
+// Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 package practice.neetCode.slidingWindow.medium;
 
@@ -8,59 +11,35 @@ public class longestSubstringWithoutRepeatingCharacters {
 
     public static void main (String args[]){
 
-        // String s = "abcabcbb";
-        // String s = "pwwkew";
-        // String s = "aab";
-        // String s = "dvdfghvsbcd";
-        // String s = "dvdf";
-        String s = "aabaab!bb";
-        int res = lengthOfLongestSubstring(s);
-        System.out.println(res);
+        System.out.println(lengthOfLongestSubstring("pwwkew"));
+        System.out.println(lengthOfLongestSubstring("au"));
+        System.out.println(lengthOfLongestSubstring("qrsvbspk"));
+        System.out.println(lengthOfLongestSubstring("aabaab!bb"));
         
     }
 
     public static int lengthOfLongestSubstring (String s){
 
-        int max = 0;
+        if (s.length() == 0) return 0;
+        if (s.length() == 1) return 1;
+
+        int max = Integer.MIN_VALUE;
         int left = 0, right = 0;
         Set<Character> set = new HashSet<Character>();
 
         while (right < s.length()){
 
             if (set.contains(s.charAt(right))){
-                while (s.charAt(left) != s.charAt(right)){
-                    set.remove(s.charAt(left));
-                    left++;
-                }
-
+                set.remove(s.charAt(left));
+                left++;
             }
+
             set.add(s.charAt(right));
-            System.out.println(s.charAt(right) + " " + right);
-            right++;
+            
             max = Math.max(max, set.size());
-            System.out.println(set);
+            right++;
+            // System.out.println(set);
         }
         return max;
     }
-
-    // public static int lengthOfLongestSubstring (String s){
-
-    //     int max = 0;
-    //     int left = 0, right = 0;
-    //     Set<Character> set = new HashSet<Character>();
-
-    //     while (right < s.length()){
-
-    //         if(set.contains(s.charAt(right))){
-    //             left ++;
-    //             right = left;
-    //             set.clear();
-    //         }
-    //         set.add(s.charAt(right));
-    //         right++;
-    //         max = Math.max(max, set.size());
-    //         // System.out.println(set);
-    //     }
-    //     return max;
-    // }
 }
