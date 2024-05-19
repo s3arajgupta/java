@@ -1,3 +1,5 @@
+// Recursion version is left
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -11,8 +13,6 @@
 
 
 package practice.neetCode.linkedList.easy;
-
-import java.util.*;
 
 import practice.neetCode.linkedList.ListNode;
 
