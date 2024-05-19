@@ -17,8 +17,8 @@ public class reorderList {
         //     node5 = node5.next;
         // }
 
-        // reorderListFunc(node5);
-        // reorderListFunc(node4);
+        reorderListFunc(node5);
+        reorderListFunc(node4);
         reorderListFunc(node2);
         
     }
@@ -42,13 +42,13 @@ public class reorderList {
 
         final ListNode root = head;
         ListNode slow = head, fast = slow.next;
-
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         // System.out.println("slow.val " + slow.val);
         // System.out.println("fast.val " + fast.val);
+
         ListNode medium = slow.next;
         // System.out.println("medium " + slow.next.val);
         slow.next = null;
@@ -57,26 +57,24 @@ public class reorderList {
         // System.out.println("reverse " + reverse.next.val);
 
         ListNode nexthead, nextreverse = head;
-        while (head != null && reverse != null) {
-            // System.out.println("while");
+        while (reverse != null) {
             nexthead = head.next;
             nextreverse = reverse.next;
 
             head.next = reverse;
-            head = nexthead;
             reverse.next = nexthead;
+            head = nexthead;
             reverse = nextreverse;
-            // System.out.println("head.val " + head.val);
         }
         
 
         head = root;
-        System.out.print("test: ");
-        while (head != null) {
-            System.out.print(head.val);
-            head = head.next;
-        }
-        System.out.println();
+        // System.out.print("test: ");
+        // while (head != null) {
+        //     System.out.print(head.val);
+        //     head = head.next;
+        // }
+        // System.out.println();
         
     }
     
