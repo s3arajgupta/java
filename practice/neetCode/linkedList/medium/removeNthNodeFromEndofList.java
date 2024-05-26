@@ -23,8 +23,8 @@ public class removeNthNodeFromEndofList {
 
     public static ListNode removeNthFromEnd (ListNode head, int n) {
 
-        final ListNode root = new ListNode();
-        root.next = head;
+        final ListNode root = new ListNode(0, head);
+        // root.next = head;
         ListNode left = root;
         ListNode right = left.next;
 
