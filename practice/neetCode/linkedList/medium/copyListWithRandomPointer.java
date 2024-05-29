@@ -1,24 +1,24 @@
-package practice.neetCode.linkedList.medium;
+// package practice.neetCode.linkedList.medium;
 
-import java.util.HashMap;
+// import java.util.HashMap;
 
-import practice.neetCode.linkedList.ListNode;
+// import practice.neetCode.linkedList.ListNode;
 
-// Definition for a Node.
-class Node {
-    int val;
-    ListNode next;
-    ListNode random;
+// // Definition for a Node.
+// class Node {
+//     int val;
+//     ListNode next;
+//     ListNode random;
 
-    public Node(int val) {
-        this.val = val;
-        this.next = null;
-        this.random = null;
-    }
-    public Node(int val, ListNode next, ListNode random) {
-        this.val = val; this.next = next; this.random = random;
-    }
-}
+//     public Node(int val) {
+//         this.val = val;
+//         this.next = null;
+//         this.random = null;
+//     }
+//     public Node(int val, ListNode next, ListNode random) {
+//         this.val = val; this.next = next; this.random = random;
+//     }
+// }
 
 // public class copyListWithRandomPointer {
 
