@@ -1,4 +1,4 @@
-package practice.neetCode.linkedList;
+package modules;
 
 public class ListNode {
     public int val;

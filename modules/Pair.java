@@ -1,4 +1,4 @@
-package practice.neetCode.treesN;
+package modules;
 
 public class Pair<A, B> {
     private A first;

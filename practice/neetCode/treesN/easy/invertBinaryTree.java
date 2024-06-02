@@ -1,6 +1,6 @@
 package practice.neetCode.treesN.easy;
 
-import practice.neetCode.treesN.TreeNode;
+import modules.TreeNode;
 
 public class invertBinaryTree {
 

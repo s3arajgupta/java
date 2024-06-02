@@ -1,6 +1,6 @@
 package practice.neetCode.linkedList.medium;
 
-import practice.neetCode.linkedList.ListNode;
+import modules.ListNode;
 
 public class removeNthNodeFromEndofList {
 

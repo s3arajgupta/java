@@ -2,7 +2,7 @@
 
 package practice.neetCode.linkedList.easy;
 
-import practice.neetCode.linkedList.ListNode;
+import modules.ListNode;
 
 public class mergeTwoSortedLists {
 
