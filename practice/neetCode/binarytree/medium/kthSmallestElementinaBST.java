@@ -1,4 +1,4 @@
-package practice.neetCode.treesN.medium;
+package practice.neetCode.binarytree.medium;
 
 import java.util.*;
 
