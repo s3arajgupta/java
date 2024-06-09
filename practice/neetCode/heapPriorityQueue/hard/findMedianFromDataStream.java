@@ -21,7 +21,7 @@ class MedianFinder {
 
     public void addNum(int num) {
 
-        boolean temp = minHeap.size() >= maxHeap.size() ? maxHeap.add(num) : minHeap.add(num);
+        // boolean temp = minHeap.size() >= maxHeap.size() ? maxHeap.add(num) : minHeap.add(num);
 
         if (minHeap.size() == 0 || maxHeap.size() == 0)
             return;
