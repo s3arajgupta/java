@@ -73,6 +73,7 @@ public class serializeAndDeserializeBinaryTree {
     public TreeNode deserialize(String data) {
 
         if (data == null || data.isEmpty()) {
+            System.out.println("*" + data + "*");
             return null;
         }
 
@@ -86,8 +87,11 @@ public class serializeAndDeserializeBinaryTree {
 
     public TreeNode deserializeDFS(String[] parts) {
 
-        if (i >= parts.length)
+        if (i >= parts.length){
+            System.out.println("*" + parts.length + "*");
+            System.out.println("*" + i + "*");
             return null;
+        }
 
         String part = parts[this.i];
 

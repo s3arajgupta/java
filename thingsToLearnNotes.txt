@@ -16,3 +16,118 @@ class Solution {
         return new String(bytes, 0, index);
     }
 }
+
+In Java, exception handling is done using `try`, `catch`, `finally`, and `throw`. This mechanism allows you to handle runtime errors and maintain the normal flow of your application.
+
+### Basic Syntax
+
+```java
+try {
+    // Code that might throw an exception
+} catch (ExceptionType1 e1) {
+    // Code to handle ExceptionType1
+} catch (ExceptionType2 e2) {
+    // Code to handle ExceptionType2
+} finally {
+    // Code that will always execute, regardless of whether an exception was thrown
+}
+```
+
+### Example Code
+
+Here is an example demonstrating the use of `try`, `catch`, `finally`, and `throw`:
+
+```java
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);  // This will cause an ArithmeticException
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Caught an ArithmeticException: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Caught a generic exception: " + e.getMessage());
+        } finally {
+            System.out.println("This block is always executed");
+        }
+
+        try {
+            validateAge(15);  // This will cause an IllegalArgumentException
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught an IllegalArgumentException: " + e.getMessage());
+        }
+
+        System.out.println("Program continues after try-catch blocks");
+    }
+
+    public static int divide(int a, int b) {
+        return a / b;  // This can throw an ArithmeticException if b is 0
+    }
+
+    public static void validateAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Age must be at least 18");
+        }
+    }
+}
+```
+
+### Explanation
+
+1. **`try` Block**:
+   - Contains code that might throw an exception. If an exception occurs, the rest of the `try` block is skipped, and control moves to the corresponding `catch` block.
+
+2. **`catch` Block**:
+   - Catches specific exceptions thrown by the `try` block. You can have multiple `catch` blocks to handle different types of exceptions.
+
+3. **`finally` Block**:
+   - Contains code that is always executed, whether an exception was thrown or not. It's typically used for cleanup activities, such as closing files or releasing resources.
+
+4. **`throw` Statement**:
+   - Used to explicitly throw an exception. In the `validateAge` method, an `IllegalArgumentException` is thrown if the age is less than 18.
+
+### Custom Exception Handling
+
+You can also define your own custom exceptions by extending the `Exception` class:
+
+```java
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            testMethod(5);
+        } catch (CustomException e) {
+            System.out.println("Caught a CustomException: " + e.getMessage());
+        }
+    }
+
+    public static void testMethod(int value) throws CustomException {
+        if (value < 10) {
+            throw new CustomException("Value must be at least 10");
+        }
+    }
+}
+```
+
+### Explanation of Custom Exception
+
+1. **Custom Exception Class**:
+   - A custom exception class `CustomException` is created by extending `Exception`.
+
+2. **Using Custom Exception**:
+   - The `testMethod` method throws a `CustomException` if the value is less than 10. This is then caught in the `main` method.
+
+### Summary
+
+- **`try`**: Block where exceptions can occur.
+- **`catch`**: Block that handles the exception.
+- **`finally`**: Block that executes regardless of whether an exception was thrown.
+- **`throw`**: Statement to explicitly throw an exception.
+- **Custom Exception**: Define your own exceptions by extending the `Exception` class.
+
+This structure helps manage exceptions effectively and keeps your code robust and error-tolerant.
