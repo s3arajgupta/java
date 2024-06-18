@@ -30,14 +30,14 @@ public class successfulPairsOfSpellsAndPotions {
 
             while (l <= r) {
                 mid = l + (r - l) / 2;
-
-                if (spells[i] * potions[mid] >= success)
+                long product = (long) spells[i] * potions[mid]; // ninja
+                if (product >= success)
                     r = mid - 1;
                 else
                     l = mid + 1;
             }
-            System.out.println(mid);
-            res[i] = m - mid;
+            // System.out.println(mid);
+            res[i] = m - l; // ninja
 
         }
 

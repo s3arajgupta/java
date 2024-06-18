@@ -1,81 +1,75 @@
-// package practice.leetcode75;
+package practice.leetcode75;
 
-// import modules.TreeNode;
+import modules.TreeNode;
 
-// public class deleteNodeInABST {
+public class DeleteNodeInABST {
 
-//     public static void main(String[] args) {
+    // public static void printTree(TreeNode root) {
 
-//         TreeNode root = new TreeNode(5);
-//         root.left = new TreeNode(3);
-//         root.left.left = new TreeNode(2);
-//         root.left.right = new TreeNode(4);
-//         root.right = new TreeNode(6);
-//         root.right.right = new TreeNode(4);
+    // if (root == null) {
+    // System.out.println("null");
+    // return;
+    // }
 
-//         System.out.println(deleteNode(root, 5));
+    // Deque<TreeNode> deque = new LinkedList<>();
+    // deque.add(root);
 
-//     }
+    // while (deque.size() != 0) {
 
-//     public static TreeNode deleteNode(TreeNode root, int key) {
+    // int size = deque.size();
+    // for (int i = 0; i < size; i++) {
+    // TreeNode node = deque.removeFirst();
+    // if (node.left != null)
+    // deque.add(node.left);
+    // if (node.right != null)
+    // deque.add(node.right);
+    // System.out.print(node.val + " ");
+    // // System.out.println(deque);
+    // }
 
-//         if (root == null)
-//             return null;
+    // }
+    // }
 
-//         return func(root, key);
+    public static void main(String[] args) {
 
-//     }
+        TreeNode root = new TreeNode(5);
+        root.right = new TreeNode(2);
+        root.right.left = new TreeNode(4);
+        root.right = new TreeNode(6);
+        root.right.right = new TreeNode(7);
 
-//     public static TreeNode func(TreeNode root, int key) {
+        TreeNode res = deleteNode(root, 7);
+        System.out.println(res.val);
+        // printTree(res);
+    }
 
-//         if (root == null)
-//             return null;
+    public static TreeNode deleteNode(TreeNode root, int key) {
 
-//         if (root.val == key){
-//             if 
-//         }
+        TreeNode curr;
+        if (root == null)
+            return root;
 
-//         if (root.left != null && root.left.val == key) {
-//             deleteleft(root);
-//         }
-//         if (root.right != null && root.right.val == key) {
-//             deleteright(root);
-//         }
-//         if (root.left != null && root.left.val < key)
-//             func(root.left, key);
-//         if (root.right != null && root.right.val < key)
-//             func(root.right, key);
+        if (key > root.val)
+            root.right = deleteNode(root.right, key);
+        else if (key < root.val)
+            root.left = deleteNode(root.left, key);
+        else {
+            if (root.left == null)
+                return root.right;
+            else if (root.right == null)
+                return root.left;
 
-//         return root;
+            // Find Min from right subtree
+            curr = root.right;
+            while (curr.left != null) {
+                curr = curr.left;
+            }
+            root.val = curr.val;
+            root.right = deleteNode(root.right, root.val);
 
-//     }
+        }
 
-//     public static void deleteright(TreeNode root) {
+        return root;
+    }
 
-//         if (root.right.left != null) {
-//             root.right.val = root.right.left.val;
-//             root.right.left = null;
-//         } else if (root.right.right != null) {
-//             root.right.val = root.right.right.val;
-//             root.right.right = null;
-//         } else {
-//             root.right = null;
-//         }
-
-//     }
-
-//     public static void deleteleft(TreeNode root) {
-
-//         if (root.left.right != null) {
-//             root.left.val = root.left.right.val;
-//             root.left.right = null;
-//         } else if (root.left.left != null) {
-//             root.left.val = root.left.left.val;
-//             root.left.left = null;
-//         } else {
-//             root.left = null;
-//         }
-
-//     }
-
-// }
+}
