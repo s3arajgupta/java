@@ -1,3 +1,5 @@
+Search ? for pending tasks
+
 https://leetcode.com/problems/removing-stars-from-a-string/?envType=study-plan-v2&envId=leetcode-75
 class Solution {
     public String removeStars(String s) {
