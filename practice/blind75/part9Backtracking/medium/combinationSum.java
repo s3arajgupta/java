@@ -1,12 +1,3 @@
-// Sorting Candidates:
-// Sorting the candidates array initially can help in early termination of the recursion when the current candidate exceeds the target.
-
-// Distinct
-// what is decision tree?
-// elimination backtracking when target is found
-// handling duplicates
-// temp.remove(setList.get(n)); // in List<Integer> removing works like array subset.remove(subset.size() - 1);
-
 package practice.blind75.part9Backtracking.medium;
 
 import java.util.*;
@@ -15,77 +6,84 @@ public class combinationSum {
 
     public static void main(String[] args) {
 
+        combinationSum sol = new combinationSum(); // ninja
         int[] candidates = { 2, 3, 6, 7 };
-        System.out.println("result " + combinationSumFunc(candidates, 7));
+        Arrays.sort(candidates); // Sorting the candidates array initially can help in early termination of the
+                                 // recursion when the current candidate exceeds the target.
+        System.out.println("result " + sol.combinationSumFunc(candidates, 7));
 
     }
 
-    private static List<List<Integer>> combinations;
-    private static List<Integer> temp;
+    private List<List<Integer>> combinations;
+    private List<Integer> temp;
+    // private int target; // global doesn't work with static
+    private int[] candidates; // global doesn't work with static
 
-    public static List<List<Integer>> combinationSumFunc(int[] candidates, int target) {
+    public List<List<Integer>> combinationSumFunc(int[] candidates, int target) {
 
         combinations = new ArrayList<>();
         temp = new ArrayList<>();
-        backtracking(0, temp, 0, target, candidates);
+        Arrays.sort(candidates);
+        // this.target = target;
+        this.candidates = candidates;
+        // backtracking(0, 0);
+        backtracking(candidates.length - 1, target);
         return combinations;
 
     }
 
-    public static void backtracking(int n, List<Integer> temp, int sumTotal, int target, int[] candidates) {
+    // backtracking(0, 0);
+    // public void backtracking(int n, int sumTotal) {
 
-        if (sumTotal == target) {
-            // System.out.println("answer " + temp);
+    // if (sumTotal == target) {
+    // combinations.add(new ArrayList<>(temp));
+    // return;
+    // }
+    // // if (sumTotal > target) // n == candidates.length unnecessary because for
+    // loop
+    // // handles this.
+    // // return; not neccessary
+
+    // for (int i = n; i < candidates.length; i++) { // adding new candidates[n];
+
+    // if (sumTotal + candidates[i] > target) // sorting helped here. Also (sumTotal
+    // > target)
+    // break; // continue; for -ves // ninja
+
+    // // adding same candidates[i];
+    // temp.add(candidates[i]);
+    // // for duplicates candidates // 2nd backtracking condition
+    // backtracking(i, sumTotal + candidates[i]);
+    // // removing same candidates[i];
+    // temp.remove(temp.size() - 1); // temp.remove(setList.get(i)); doesn't work
+    // }
+
+    // }
+
+    // backtracking(candidates.length - 1, target);
+    public void backtracking(int n, int target) {
+
+        if (target == 0) {
             combinations.add(new ArrayList<>(temp));
             return;
         }
-        if (n >= candidates.length || sumTotal > target)
-            return;
+        // if (sumTotal > target) // n == candidates.length unnecessary because for loop
+        // handles this.
+        // return; not neccessary
 
-        // adding same candidates[n];
-        temp.add(candidates[n]);
-        backtracking(n, temp, sumTotal + candidates[n], target, candidates);
+        for (int i = n; i >= 0; i--) { // adding new candidates[n];
 
-        // removing same candidates[n];
-        temp.remove(temp.size() - 1);
-        
-        // adding new candidates[n];
-        backtracking(n + 1, temp, sumTotal, target, candidates);
+            if (target - candidates[i] < 0) // sorting helped here. Also (sumTotal > target)
+                continue;
+
+            // adding same candidates[i];
+            temp.add(candidates[i]);
+            // for duplicates candidates // 2nd backtracking condition
+            backtracking(i, target - candidates[i]);
+            // removing same candidates[i];
+            temp.remove(temp.size() - 1); // temp.remove(setList.get(i)); doesn't work
+        }
 
     }
-
-    // private static List<List<Integer>> combinations;
-    // private static List<Integer> sumList;
-
-    // public static List<List<Integer>> combinationSumFunc(int[] candidates, int
-    // target) {
-
-    // combinations = new ArrayList<>();
-    // sumList = new ArrayList<>();
-    // backtracking(0, candidates, target);
-    // return combinations;
-
-    // }
-
-    // public static void backtracking(int n, int[] candidates, int target) {
-
-    // if (n >= candidates.length) {
-    // int sum = 0;
-    // for (int i = 0; i < sumList.size(); i++) {
-    // sum += sumList.get(i);
-    // }
-    // if (sum == target)
-    // combinations.add(new ArrayList<>(sumList));
-    // // combinations.add(new ArrayList<>(sumList));
-    // return;
-    // }
-
-    // sumList.add(candidates[n]);
-    // backtracking(n + 1, candidates, target);
-
-    // sumList.remove(sumList.size() - 1);
-    // backtracking(n + 1, candidates, target);
-
-    // }
 
 }

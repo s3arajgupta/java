@@ -1,3 +1,5 @@
+// In the case of languages like Java, Python, and Javascript, there is no need for the deletion of objects or nodes because these have an automatic garbage collection mechanism that automatically identifies and reclaims memory that is no longer in use.
+
 package practice.blind75.part6LinkedList.medium;
 
 import modules.ListNode;
@@ -8,56 +10,47 @@ public class removeNthNodeFromEndofList {
 
         ListNode node1 = new ListNode(5, null);
         ListNode node2 = new ListNode(4, node1);
-        // ListNode node3 = new ListNode(3, node2);
-        // ListNode node4 = new ListNode(2, node3);
-        // ListNode node5 = new ListNode(1, node4);
-        
-        ListNode res = removeNthFromEnd(node2, 2);
+        ListNode node3 = new ListNode(3, node2);
+        ListNode node4 = new ListNode(2, node3);
+        ListNode node5 = new ListNode(1, node4);
 
+        ListNode res = removeNthFromEnd(node5, 2);
         while (res != null) {
             System.out.print(res.val + " ");
             res = res.next;
         }
-        
+
     }
 
-    public static ListNode removeNthFromEnd (ListNode head, int n) {
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
 
-        final ListNode root = new ListNode(0, head);
-        // root.next = head;
-        ListNode left = root;
-        ListNode right = left.next;
+        final ListNode root = new ListNode(-1, head);
+        ListNode slow = root, fast = head;
 
-        if (left.next.next == null){
-            // System.out.println("if");
-            return left.next.next;
+        for (int i = 0; i < n; i++)
+            fast = fast.next;
+
+        // int l = 0, r = 2;
+        // while (fast != null) { // sliding window
+        // if (r - l > n) {
+        // slow = slow.next;
+        // l++;
+        // }
+        // fast = fast.next;
+        // r++;
+        // }
+
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        else {
-            // System.out.println("else");
-            right = left.next.next;
-        }
-        
-        // System.out.println(left.val);
-        // System.out.println(right.val);
-        
-        int l = 0, r = 2;
-        while (right != null) {
-            if (r - l > n) {
-                left = left.next;
-                l++;
-            }
-            right = right.next;
-            r++;
-        }
-        // System.out.println(left.val);
-        // System.out.println(right.val);
 
-        ListNode tempNode = left.next.next;
-        left.next = tempNode;
+        ListNode delNode = slow.next;
+        slow.next = slow.next.next;
+        delNode.next = null;
 
-        // return new ListNode();
         return root.next;
-        
+
     }
-    
+
 }

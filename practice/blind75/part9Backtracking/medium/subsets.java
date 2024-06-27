@@ -25,18 +25,16 @@ public class subsets {
 
     public static void backtracking(int n, int[] nums) {
 
-        if (n >= nums.length) { // True base condition and other false condition
-            // List<Integer> list = new ArrayList<>(temp);
-            // res.add(list);
-            res.add(new ArrayList<>(temp)); // ninja
+        if (n == nums.length) { // n == nums.length but temp = nums.length - 1, therefore inbounds
+            res.add(new ArrayList<>(temp));
             return;
         }
 
-        // include index i
+        // include index n in temp
         temp.add(nums[n]);
         backtracking(n + 1, nums);
 
-        // remove index i
+        // remove index n from temp
         temp.remove(temp.size() - 1);
         backtracking(n + 1, nums);
 

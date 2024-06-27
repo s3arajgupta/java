@@ -1,4 +1,4 @@
-package practice.leetcode75;
+package practice.blind75.part9Backtracking.medium;
 
 import java.util.*;
 
@@ -6,11 +6,17 @@ public class letterCombinationsOfAPhoneNumber {
 
     public static void main(String[] args) {
 
-        System.out.println("result " + letterCombinations(""));
+        letterCombinationsOfAPhoneNumber sol = new letterCombinationsOfAPhoneNumber();
+        System.out.println("result " + sol.letterCombinations("348"));
 
     }
 
-    public static List<String> letterCombinations(String digits) {
+    public HashMap<Character, String> map;
+    public List<String> result;
+    public String digits;
+    public StringBuilder temp;
+
+    public List<String> letterCombinations(String digits) {
 
         if (digits.length() == 0)
             return new ArrayList<>();
@@ -24,18 +30,16 @@ public class letterCombinationsOfAPhoneNumber {
         map.put('7', "pqrs");
         map.put('8', "tuv");
         map.put('9', "wxyz");
-        System.out.println(map);
 
         result = new ArrayList<>();
-        backtracking(0, new StringBuilder(), digits);
-        // System.out.println(result.size());
+        this.digits = digits;
+        temp = new StringBuilder();
+        backtracking(0, temp);
         return result;
+
     }
 
-    public static HashMap<Character, String> map;
-    public static List<String> result;
-
-    public static void backtracking(int n, StringBuilder temp, String digits) {
+    public void backtracking(int n, StringBuilder temp) {
 
         if (n == digits.length() - 1) {
 
@@ -49,8 +53,8 @@ public class letterCombinationsOfAPhoneNumber {
 
         char[] arr = map.get(digits.charAt(n)).toCharArray();
         for (char c : arr) {
-            backtracking(n + 1, temp.append(c), digits);
             temp.setLength(n);
+            backtracking(n + 1, temp.append(c));
         }
 
     }

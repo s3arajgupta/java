@@ -1,4 +1,7 @@
 Search ? for pending tasks
+Arrays.toString(sortedNumbers)
+Arrays.sort(candidates);
+Collections.reverse(Arrays.asList(candidates)); // doesnt work, check it first
 
 https://leetcode.com/problems/removing-stars-from-a-string/?envType=study-plan-v2&envId=leetcode-75
 class Solution {
@@ -133,3 +136,6 @@ public class CustomExceptionExample {
 - **Custom Exception**: Define your own exceptions by extending the `Exception` class.
 
 This structure helps manage exceptions effectively and keeps your code robust and error-tolerant.
+
+When there are numerous function are waiting in call stack, segmentaion fault occurs aka stackoverflow.
+When we return the function gets terminated.

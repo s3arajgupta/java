@@ -6,26 +6,29 @@ public class permutations {
 
     public static void main(String[] args) {
 
+        permutations sol = new permutations();
         int[] nums = { 1, 2, 3 };
-        System.out.println(permute(nums));
+        System.out.println(sol.permute(nums));
 
     }
 
-    private static List<List<Integer>> results;
-    private static List<Integer> temp;
+    private List<List<Integer>> results;
+    private List<Integer> temp;
+    private int[] nums;
+    private boolean[] used; // default is false.
 
-    public static List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permute(int[] nums) {
 
         results = new ArrayList<>();
-        boolean[] used = new boolean[nums.length];
-        // for (boolean i : used) System.out.print(i + " "); // default is false.
         temp = new ArrayList<>();
-        backtracking(used, temp, nums);
+        this.nums = nums;
+        this.used = new boolean[nums.length];
+        backtracking();
         return results;
 
     }
 
-    public static void backtracking(boolean[] used, List<Integer> temp, int[] nums) {
+    public void backtracking() {
 
         if (temp.size() == nums.length) {
             results.add(new ArrayList<>(temp));
@@ -39,12 +42,10 @@ public class permutations {
 
                 // If nums[i] is not used(true) in the current path, Choose the element nums[i]
                 temp.add(nums[i]);
-                // System.out.println(temp);
-                used[i] = true; // next time the if condition will fail
-                backtracking(used, temp, nums);
+                used[i] = true; // next time, the if condition will fail
+                backtracking();
 
                 temp.remove(temp.size() - 1);
-                // System.out.println(temp);
                 used[i] = false;
 
             }
