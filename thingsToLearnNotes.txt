@@ -139,3 +139,21 @@ This structure helps manage exceptions effectively and keeps your code robust an
 
 When there are numerous function are waiting in call stack, segmentaion fault occurs aka stackoverflow.
 When we return the function gets terminated.
+
+
+Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+    public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+        return o1.getKey().compareTo(o2.getKey());
+    }
+}); // ninja
+        
+// @Override ???
+stack.add(new HashMap<>(currMap)); // ninja
+List<Map.Entry<String, Integer>> list = new ArrayList<>(currMap.entrySet());
+list.sort(Map.Entry.comparingByKey()); // ninja
+
+// Convert the sorted list back to a LinkedHashMap to maintain the sorted order.
+LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+for (Map.Entry<String, Integer> entry : list) {
+    sortedMap.put(entry.getKey(), entry.getValue());
+}
