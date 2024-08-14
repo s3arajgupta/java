@@ -157,3 +157,26 @@ LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
 for (Map.Entry<String, Integer> entry : list) {
     sortedMap.put(entry.getKey(), entry.getValue());
 }
+
+
+Memoization and tabulation are both techniques used to optimize algorithms by storing intermediate results to avoid redundant calculations, especially in dynamic programming problems. Here’s a brief explanation of each:
+
+### Memoization
+- **Definition:** Memoization is a top-down approach where you store the results of expensive function calls and reuse these results when the same inputs occur again.
+- **How it Works:** When a function is called with certain arguments, it first checks if the result is already in a cache (often implemented as a dictionary or hash table). If it is, the function returns the cached result. If not, it computes the result, stores it in the cache, and then returns it.
+- **Use Case:** Memoization is particularly useful when a recursive algorithm solves overlapping subproblems, which means it recalculates the same results multiple times.
+
+**Example:** In calculating Fibonacci numbers, memoization would store previously computed Fibonacci values so that each value is only calculated once.
+
+### Tabulation
+- **Definition:** Tabulation is a bottom-up approach where you solve all possible subproblems starting from the smallest one and build up to the final solution.
+- **How it Works:** You create a table (usually a 2D array or list) where each entry represents a subproblem solution. You iteratively fill in the table based on previously computed values, ensuring that when you need a solution for a particular subproblem, it's already available in the table.
+- **Use Case:** Tabulation is useful when you can solve the problem iteratively and when you can build up the solution in a systematic way.
+
+**Example:** In calculating Fibonacci numbers, tabulation would involve filling an array where each index represents a Fibonacci number, starting from the base cases and working up to the desired value.
+
+### Comparison
+- **Memoization:** Generally easier to implement if you already have a recursive solution. Can be more memory-efficient since it only stores the results that are needed.
+- **Tabulation:** Often more space-efficient and can avoid the overhead of recursive function calls. Typically results in iterative solutions, which can be more performant in terms of execution speed.
+
+Both techniques are used to improve the efficiency of algorithms by reducing redundant computations, with memoization using a top-down approach and tabulation using a bottom-up approach.

@@ -24,7 +24,7 @@ public class palindromicSubstrings {
 
     public int countSubstrings(String s) {
 
-        int r = 0, l = 0, n = s.length(), res = 0;
+        int n = s.length(), res = 0;
         if (n <= 1)
             return 1;
 
