@@ -180,3 +180,8 @@ Memoization and tabulation are both techniques used to optimize algorithms by st
 - **Tabulation:** Often more space-efficient and can avoid the overhead of recursive function calls. Typically results in iterative solutions, which can be more performant in terms of execution speed.
 
 Both techniques are used to improve the efficiency of algorithms by reducing redundant computations, with memoization using a top-down approach and tabulation using a bottom-up approach.
+
+
+A subsequesnce is in same order but not contiguous.
+
+int sum = Arrays.stream(nums).sum();
