@@ -6,7 +6,7 @@ public class encodeandDecodeStrings {
 
     public static String encode(List<String> strs) {
         StringBuilder str = new StringBuilder();
-        for (int i = 0; i < strs.size(); i++){
+        for (int i = 0; i < strs.size(); i++) {
             str = str.append(strs.get(i).length() + "#").append(strs.get(i));
         }
         // System.out.println(str);
@@ -17,33 +17,33 @@ public class encodeandDecodeStrings {
 
         int checkpoint = 0;
         List<String> res = new ArrayList<>();
-        
-        for (int i = 0; i < str.length(); i++){
-            if(str.charAt(i) == '#'){
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '#') {
                 StringBuilder digitStr = new StringBuilder();
                 for (int j = checkpoint; j < i; j++)
-                digitStr.append(str.charAt(j));
+                    digitStr.append(str.charAt(j));
                 // System.out.println("digitStr " + digitStr);
                 int intParser = Integer.parseInt(digitStr.toString());
                 // System.out.println("intParser " + intParser);
                 digitStr.setLength(0);
                 StringBuilder valueStr = new StringBuilder();
                 while (intParser > 0) {
-                    valueStr.append(str.charAt(i+1));
+                    valueStr.append(str.charAt(i + 1));
                     i++;
                     intParser--;
                 }
                 // System.out.println(valueStr);
                 res.add(valueStr.toString());
                 valueStr.setLength(0);
-                checkpoint = i+1;
+                checkpoint = i + 1;
             }
         }
 
         return res;
     }
 
-    public static void main ( String args[]){
+    public static void main(String args[]) {
 
         List<String> strs = new ArrayList<>();
         strs.add("lin#tlin#tlin#tlin#t");
@@ -55,6 +55,5 @@ public class encodeandDecodeStrings {
         strs = decode(s);
         System.out.println("de: " + strs);
     }
-    
 
 }

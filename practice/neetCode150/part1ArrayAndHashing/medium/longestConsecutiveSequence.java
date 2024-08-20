@@ -30,7 +30,7 @@ public class longestConsecutiveSequence {
                     count++;
                 }
                 if (max < count) max = count;
-                // count = 0;
+                // count = 0; // amazing trick
                 }
             }
 

@@ -13,7 +13,6 @@ public class binarySearch {
 
         int mid, start = 0, end = nums.length-1;
         while (start <= end) {
-            // mid = (start + end)/2;
             // mid = end + ((start - end)/2); // ? Bug at this point for very large number
             mid = start + ((end - start)/2); // ? Bug at this point for very large number
             if (nums[mid] > target) {

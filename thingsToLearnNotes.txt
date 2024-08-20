@@ -185,3 +185,4 @@ Both techniques are used to improve the efficiency of algorithms by reducing red
 A subsequesnce is in same order but not contiguous.
 
 int sum = Arrays.stream(nums).sum();
+Collections.max(map.values())

@@ -44,7 +44,6 @@ public class productOfArrayExceptSelf {
         for (int i = 0; i < nums.length; i++)
             nums[i] = lhs[i]*rhs[i];
         
-        // return new int[]{};
         return nums;
     }
 

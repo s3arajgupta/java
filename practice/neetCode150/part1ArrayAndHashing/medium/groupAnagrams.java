@@ -4,8 +4,8 @@ import java.util.*;
 
 public class groupAnagrams {
 
-    public static void main (String args[]){
-        
+    public static void main(String args[]) {
+
         List<String> arr = new ArrayList<>();
         arr.add("eat");
         arr.add("tea");
@@ -13,30 +13,29 @@ public class groupAnagrams {
         arr.add("ate");
         arr.add("nat");
         arr.add("bat");
-        
-        List<List<String>> res = new ArrayList<>();
-        res = groupAnagramsFunc(arr);
-        System.out.println("res " + res.toString());
-        
+        System.out.println(groupAnagramsFunc1(arr).toString());
+
+        String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
+        System.out.println(groupAnagramsFunc2(strs));
+
     }
 
-    public static List<List<String>> groupAnagramsFunc (List<String> strs){
+    public static List<List<String>> groupAnagramsFunc1(List<String> strs) {
 
         HashMap<String, List<String>> map = new HashMap<>();
-        
-        for (int i = 0; i < strs.size(); i++){
+
+        for (int i = 0; i < strs.size(); i++) {
             int[] temp = new int[26];
-            for(char j : strs.get(i).toCharArray()){
+            for (char j : strs.get(i).toCharArray()) {
                 temp[j - 'a']++;
             }
             String array = Arrays.toString(temp);
-            if(map.containsKey(array)){
+            if (map.containsKey(array)) {
                 List<String> oldList = map.get(array);
                 oldList.add(strs.get(i));
                 map.replace(array, oldList);
                 // System.out.println("if");
-            }
-            else{
+            } else {
                 List<String> newList = new ArrayList<>();
                 newList.add(strs.get(i));
                 map.put(array, newList);
@@ -44,7 +43,7 @@ public class groupAnagrams {
             }
         }
         // System.out.println("map " + map);
-        
+
         List<List<String>> res = new ArrayList<>();
         for (List<String> s : map.values())
             res.add(s);
@@ -52,100 +51,22 @@ public class groupAnagrams {
         return res;
     }
 
-    // public static List<List<String>> groupAnagramsFunc (String[] strs){
+    public static List<List<String>> groupAnagramsFunc2(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
 
-    //     HashMap<String, List<String>> map = new HashMap<>();
-        
-    //     for (int i = 0; i < strs.length; i++){
-    //         int[] temp = new int[26];
-    //         for(char j : strs[i].toCharArray()){
-    //             temp[j - 'a']++;
-    //         }
-    //         String array = Arrays.toString(temp);
-    //         if(map.containsKey(array)){
-    //             // List<String> oldList = map.get(array);
-    //             // oldList.add(strs[i]);
-    //             // map.replace(array, oldList);
-    //             // System.out.println("if");
-    //             map.get(array).add(strs[i]);
-    //         }
-    //         else{
-    //             List<String> newList = new ArrayList<>();
-    //             newList.add(strs[i]);
-    //             map.put(array, newList);
-    //             // System.out.println("else");
-    //         }
-    //     }
-    //     // System.out.println("map " + map);
-        
-    //     List<List<String>> res = new ArrayList<>();
-    //     for (List<String> s : map.values())
-    //         res.add(s);
+        for (String word : strs) {
+            char[] chars = word.toCharArray();
+            Arrays.sort(chars);
+            String sortedWord = new String(chars);
 
-    //     return res;
-    // }
-    
+            if (!map.containsKey(sortedWord)) {
+                map.put(sortedWord, new ArrayList<>());
+            }
+
+            map.get(sortedWord).add(word);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+
 }
-
-
-// import java.util.AbstractList;
-
-// class Solution {
-    
-//     private List<List<String>> res;
-//     public List<List<String>> groupAnagrams(String[] strs) {       
-//         return new AbstractList<List<String>>() {
-//             public List<String> get(int index) {
-//                 if (res == null) init();
-//                 return res.get(index);
-//             }
-            
-//             public int size() {
-//                 if (res == null) init();
-//                 return res.size();
-//             }
-            
-//             private void init() {
-//                 Map<String, List<String>> map = new HashMap<>();
-//                 for (String s : strs) {
-//                     int[] count = new int[26];
-//                     for (char c : s.toCharArray()) {
-//                         count[c - 'a']++;
-//                     }
-//                     StringBuilder sb = new StringBuilder();
-//                     for (int i = 0; i < 26; i++) {
-//                         if (count[i] != 0) {
-//                             sb.append('a' + i);
-//                             sb.append(count[i]);
-//                         }
-//                     }
-//                     String key = sb.toString();
-//                     map.computeIfAbsent(key, k -> new ArrayList<String>()).add(s);
-//                     res = new ArrayList<>(map.values());
-//                 }
-//             }
-//         };
-//     }
-// }
-
-
-// class Solution {
-//     public List<List<String>> groupAnagrams(String[] strs) {
-//         HashMap<String, List<String>> map = new HashMap<>();
-
-//         for (String str : strs) {
-
-//             char[] charArray = str.toCharArray();
-//             Arrays.sort(charArray);
-//             String sortedStr = new String(charArray);
-
-//             if (!map.containsKey(sortedStr)) {
-//                 map.put(sortedStr, new ArrayList<>());
-//             }
-
-//             map.get(sortedStr).add(str);
-//         }
-
-//         return new ArrayList<>(map.values());
-//     }
-// }
