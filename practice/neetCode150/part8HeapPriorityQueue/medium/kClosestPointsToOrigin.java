@@ -11,47 +11,30 @@ public class kClosestPointsToOrigin {
 
         int[][] res = kClosest(points, 2);
         for (int[] i : res)
-            for (int j : i)
-                System.out.print(j + " ");
+            System.out.println(Arrays.toString(i));
 
     }
 
     public static int[][] kClosest(int[][] points, int k) {
 
-        // PriorityQueue<int[]> maxHeap = new PriorityQueue<>();
-        // PriorityQueue<Pair<Integer, Integer>> maxHeap = new
-        // PriorityQueue<>();
-        // PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
-        // (a, b) -> Integer.compare((a[0] * a[0] + a[1] * a[1]), (b[0] * b[0] + b[1] *
-        // b[1]))); // ninja
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
                 Collections.reverseOrder((a, b) -> Integer.compare((a[0] * a[0] + a[1] *
-                        a[1]), (b[0] * b[0] + b[1] * b[1])))); // ninja
-        // System.out.println("maxHeap " + maxHeap);
+                        a[1]), (b[0] * b[0] + b[1] * b[1]))));
 
         for (int[] i : points) {
-
             maxHeap.add(i);
             if (maxHeap.size() > k)
                 maxHeap.poll();
-
         }
-        // System.out.println(maxHeap);
-        int[][] res = new int[k][2];
-        // int[] curr = new int[2]; // Avoid Creating New Arrays Inside the Loop
-        // for (int i = 0; i < k; i++) {
-        // curr = maxHeap.poll();
-        // res[i][0] = curr[0];
-        // res[i][1] = curr[1];
-        // System.out.println(res[i][0] + " " + res[i][1]);
+
+        // int[][] res = new int[k][2];
+        // int i = 0;
+        // while (!maxHeap.isEmpty()) {
+        // res[i++] = maxHeap.poll();
         // }
+        // return res;
 
-        int i = 0;
-        while (!maxHeap.isEmpty()) {
-            res[i++] = maxHeap.poll();
-        }
-
-        return res;
+        return maxHeap.toArray(new int[][] {});
 
     }
 

@@ -28,7 +28,6 @@ public class nQueens {
         for (int i = 0; i < n; i++) {
             char[] row = new char[n];
             Arrays.fill(row, '.'); // ninja
-            // temp.add(row.toString()); // not ninja
             temp.add(new String(row));
         }
 
@@ -56,7 +55,6 @@ public class nQueens {
             return;
         }
 
-        // medium - hard problem
         for (int col = 0; col < queens; col++) {
 
             if (cols.contains(col) || posD.contains(row + col) || negD.contains(row - col))

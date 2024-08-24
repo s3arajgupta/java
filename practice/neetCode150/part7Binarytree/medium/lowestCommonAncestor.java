@@ -22,13 +22,13 @@ public class lowestCommonAncestor {
 
     public static TreeNode lowestCommonAncestorFunc(TreeNode root, TreeNode p, TreeNode q) {
 
-        // if (p.val < root.val && q.val > root.val) return root;
+        if (p.val < root.val && q.val < root.val)
+            return lowestCommonAncestorFunc(root.left, p, q);
+        if (p.val > root.val && q.val > root.val)
+            return lowestCommonAncestorFunc(root.right, p, q);
 
-        if (p.val < root.val && q .val < root.val) return lowestCommonAncestorFunc(root.left, p, q); 
-        if (p.val > root.val && q .val > root.val) return lowestCommonAncestorFunc(root.right, p, q);
+        return root;
 
-        else return root;
-   
     }
 
 }

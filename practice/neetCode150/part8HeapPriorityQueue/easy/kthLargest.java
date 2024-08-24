@@ -1,7 +1,3 @@
-// It uses a PriorityQueue to store the k largest elements. The PriorityQueue is a min-heap by default, meaning the smallest element is always at the front of the queue.
-// offer: if the queue is full, return false and will not throw an exception
-// add: if the queue is full, throw an exception
-
 package practice.neetCode150.part8HeapPriorityQueue.easy;
 
 import java.util.PriorityQueue;
@@ -20,14 +16,16 @@ class kthLargest {
 
     }
 
-    public PriorityQueue<Integer> heap = new PriorityQueue<>();
-    public int k;
+    private PriorityQueue<Integer> heap;
+    private int k;
 
     public kthLargest(int k, int[] nums) {
 
+        this.heap = new PriorityQueue<>();
         this.k = k;
         for (int i : nums) // O(n)
             add(i);
+        // System.out.println(heap);
 
     }
 

@@ -24,19 +24,23 @@ public class balancedBinaryTree {
             return true;
 
         int left = height(root.left);
+        // System.out.println("Total left " + left);
         int right = height(root.right);
-
+        // System.out.println("Total right " + right);
+        
         return Math.abs(right - left) <= 1 && isBalanced(root.left) && isBalanced(root.right);
-
+        
     }
-
+    
     public static int height(TreeNode root) {
-
+        
         if (root == null)
-            return 0;
-
+        return 0;
+        
         int left = height(root.left);
+        // System.out.println("left " + left);
         int right = height(root.right);
+        // System.out.println("right " + right);
         return 1 + Math.max(left, right);
 
     }

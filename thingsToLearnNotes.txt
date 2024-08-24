@@ -186,3 +186,22 @@ A subsequesnce is in same order but not contiguous.
 
 int sum = Arrays.stream(nums).sum();
 Collections.max(map.values())
+
+modules classes
+
+// offer: if the queue is full, return false and will not throw an exception
+// add: if the queue is full, throw an exception
+
+PriorityQueue<int[]> maxHeap = new PriorityQueue<>();
+PriorityQueue<Pair<Integer, Integer>> maxHeap = new PriorityQueue<>();
+PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+        (a, b) -> Integer.compare((a[0] * a[0] + a[1] * a[1]), (b[0] * b[0] + b[1] *
+                b[1])));
+PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+        Collections.reverseOrder((a, b) -> Integer.compare((a[0] * a[0] + a[1] *
+                a[1]), (b[0] * b[0] + b[1] * b[1]))));
+
+int pivotIndex = new Random().nextInt(r - l + 1) + l;
+
+            String array = Arrays.toString(temp);
+            map.putIfAbsent(str, new ArrayList<>());

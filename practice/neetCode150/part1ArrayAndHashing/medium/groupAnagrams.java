@@ -25,36 +25,32 @@ public class groupAnagrams {
         HashMap<String, List<String>> map = new HashMap<>();
 
         for (int i = 0; i < strs.size(); i++) {
+
             int[] temp = new int[26];
-            for (char j : strs.get(i).toCharArray()) {
+
+            for (char j : strs.get(i).toCharArray())
                 temp[j - 'a']++;
-            }
+
             String array = Arrays.toString(temp);
-            if (map.containsKey(array)) {
-                List<String> oldList = map.get(array);
-                oldList.add(strs.get(i));
-                map.replace(array, oldList);
-                // System.out.println("if");
-            } else {
-                List<String> newList = new ArrayList<>();
-                newList.add(strs.get(i));
-                map.put(array, newList);
-                // System.out.println("else");
-            }
+
+            if (!map.containsKey(array))
+                map.put(array, new ArrayList<>());
+
+            map.get(array).add(strs.get(i));
+
         }
-        // System.out.println("map " + map);
+        // System.out.println(String.valueOf(map));
 
-        List<List<String>> res = new ArrayList<>();
-        for (List<String> s : map.values())
-            res.add(s);
+        return new ArrayList<>(map.values());
 
-        return res;
     }
 
     public static List<List<String>> groupAnagramsFunc2(String[] strs) {
+
         Map<String, List<String>> map = new HashMap<>();
 
         for (String word : strs) {
+
             char[] chars = word.toCharArray();
             Arrays.sort(chars);
             String sortedWord = new String(chars);
@@ -64,9 +60,12 @@ public class groupAnagrams {
             }
 
             map.get(sortedWord).add(word);
+
         }
+        // System.out.println(String.valueOf(map));
 
         return new ArrayList<>(map.values());
+
     }
 
 }

@@ -30,16 +30,15 @@ public class binaryTreeRightSideView {
 
         while (deque.size() != 0) {
             int size = deque.size();
-            TreeNode node = new TreeNode();
             for (int i = 0; i < size; i++) {
-                node = deque.removeFirst();
+                TreeNode node = deque.removeFirst();
+                if (i == size - 1)
+                    list.add(node.val);
                 if (node.left != null)
                     deque.add(node.left);
                 if (node.right != null)
                     deque.add(node.right);
             }
-            list.add(node.val);
-            // System.out.println(list);
 
         }
 

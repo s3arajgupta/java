@@ -6,6 +6,7 @@ public class countGoodNodesInBinaryTree {
 
     public static void main(String[] args) {
 
+        countGoodNodesInBinaryTree sol = new countGoodNodesInBinaryTree();
         TreeNode root = new TreeNode(3);
         root.left = new TreeNode(1);
         root.left.left = new TreeNode(3);
@@ -13,26 +14,22 @@ public class countGoodNodesInBinaryTree {
         root.right.left = new TreeNode(1);
         root.right.right = new TreeNode(5);
 
-        System.out.println("result " + goodNodes(root));
+        System.out.println("result " + sol.goodNodes(root));
 
     }
 
-    public static int goodNodes(TreeNode root) {
+    public int goodNodes(TreeNode root) {
 
         return goodNodesFunction(root, -99999);
 
     }
 
-    public static int goodNodesFunction(TreeNode root, int max) {
+    public int goodNodesFunction(TreeNode root, int max) {
 
         if (root == null)
             return 0;
 
         int result = root.val >= max ? 1 : 0; // ninja
-        // if (root.val >= min) // unreachable code
-        // return 1;
-        // else
-        // return 0;
 
         result += goodNodesFunction(root.left, Math.max(max, root.val));
         result += goodNodesFunction(root.right, Math.max(max, root.val));
