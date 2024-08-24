@@ -205,3 +205,11 @@ int pivotIndex = new Random().nextInt(r - l + 1) + l;
 
             String array = Arrays.toString(temp);
             map.putIfAbsent(str, new ArrayList<>());
+        Arrays.sort(nums); // ninja
+        // Collections.sort(nums); // ninja
+                    res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[k])));
+// Input: s = "pwwkew"
+// Output: 3
+// Explanation: The answer is "wke", with the length of 3.
+// Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+Collections.max(map.values())
