@@ -1,49 +1,50 @@
 package practice.neetCode150.part4Stack.hard;
-// package practice.neetCode.stack.hard;
 
-// import java.util.*;
+import java.util.*;
+import modules.*;
 
-// public class largestRectangleInHistogram {
+public class largestRectangleInHistogram {
 
-//     public static void main (String args[]){
+    public static void main(String args[]) {
 
-//         int[] heights = {2,1,5,6,2,3};
-//         System.out.println(largestRectangleArea(heights));
-        
-//     }
+        int[] heights = { 2, 1, 5, 6, 2, 3 };
+        System.out.println(largestRectangleArea(heights));
 
-//     public static int largestRectangleArea (int[] heights){
+    }
 
-//         int max = 0;
-//         int start;
-//         Stack<Pair<Integer, Integer>> stack = new Stack<>();
-//         for (int i = 0; i < heights.length; i++) {
+    public static int largestRectangleArea(int[] heights) {
 
-//             start = i;
+        int max = 0;
+        int start;
+        Stack<Pair<Integer, Integer>> stack = new Stack<>();
 
-//             while (!stack.isEmpty() && stack.peek().getValue() > heights[i]){
+        for (int i = 0; i < heights.length; i++) {
 
-//                 Pair<Integer, Integer> pair = stack.pop();
-//                 // int index = pair.getKey();
-//                 // int h = pair.getValue();
-//                 max = Math.max(max, pair.getValue() * (i - pair.getKey()));
-//                 start = pair.getKey();
-                
-//             }
-//             stack.push(new Pair(start, heights[i]));
-            
-//         }
+            start = i;
 
-//         while (!stack.isEmpty()) {
-            
-//             Pair<Integer, Integer> pair = stack.pop();
-//             // int index = pair.getKey();
-//             // int h = pair.getValue();
-//             max = Math.max(max, pair.getValue() * (heights.length - pair.getKey()));
-            
-//         }
+            while (!stack.isEmpty() && stack.peek().getSecond() > heights[i]) {
 
-//         return max;
+                Pair<Integer, Integer> pair = stack.pop();
+                // int index = pair.getFirst();
+                // int h = pair.getSecond();
+                max = Math.max(max, pair.getSecond() * (i - pair.getFirst()));
+                start = pair.getFirst();
 
-//     }
-// }
+            }
+
+            stack.push(new Pair<>(start, heights[i]));
+
+        }
+
+        while (!stack.isEmpty()) {
+
+            Pair<Integer, Integer> pair = stack.pop();
+            max = Math.max(max, pair.getSecond() * (heights.length - pair.getFirst()));
+
+        }
+
+        return max;
+
+    }
+
+}

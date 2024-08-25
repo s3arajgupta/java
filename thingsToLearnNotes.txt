@@ -215,3 +215,7 @@ int pivotIndex = new Random().nextInt(r - l + 1) + l;
 Collections.max(map.values())
 
             System.out.println(new StringBuilder(s.substring(l, r + 1)));
+
+        int[] sortedArray = Arrays.copyOf(position, position.length);
+        Arrays.sort(sortedArray);
+        // Collections.reverse(Arrays.asList(reverseSortedArray));

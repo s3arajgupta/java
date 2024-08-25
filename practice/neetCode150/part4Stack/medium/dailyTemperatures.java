@@ -7,8 +7,7 @@ public class dailyTemperatures {
     public static void main(String args[]) {
 
         int[] temperatures = { 73, 74, 75, 71, 69, 72, 76, 73 };
-        int[] answers = dailyTemperaturesFunc(temperatures);
-        System.out.print(Arrays.toString(answers));
+        System.out.print(Arrays.toString(dailyTemperaturesFunc(temperatures)));
 
     }
 
@@ -22,16 +21,15 @@ public class dailyTemperatures {
             while (!stackIndex.isEmpty() && temperatures[i] > temperatures[stackIndex.peek()]) {
                 int prevDay = stackIndex.pop();
                 answersIndex[prevDay] = i - prevDay;
-                System.out.println("temperatures[prevDay] " + temperatures[prevDay]);
+                // System.out.println("temperatures[prevDay] " + temperatures[prevDay]);
             }
 
             stackIndex.push(i);
-            System.out.println(stackIndex);
-            System.out.println(Arrays.toString(answersIndex));
 
         }
 
         return answersIndex;
 
     }
+
 }
