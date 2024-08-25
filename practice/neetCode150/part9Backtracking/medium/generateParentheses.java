@@ -12,14 +12,14 @@ public class generateParentheses {
 
     }
 
-    List<String> res;
-    Stack<String> stack;
+    private List<String> res;
+    private Stack<String> stack;
 
     public List<String> generateParenthesis(int n) {
 
         List<String> res = new ArrayList<>();
-        this.res = res;
         Stack<String> stack = new Stack<>();
+        this.res = res;
         this.stack = stack;
         backtracking(0, 0, n);
         return res;
@@ -29,21 +29,30 @@ public class generateParentheses {
     public void backtracking(int open, int close, int n) {
 
         if (open == n && close == n) {
+
             StringBuilder str = new StringBuilder();
             for (String s : stack)
                 str.append(s);
+
             res.add(str.toString());
             return;
+
         }
+
         if (open < n) {
+
             stack.add("(");
             backtracking(open + 1, close, n);
             stack.pop();
+
         }
+
         if (open > close) {
+
             stack.add(")");
             backtracking(open, close + 1, n);
             stack.pop();
+
         }
 
     }

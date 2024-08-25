@@ -22,6 +22,7 @@ public class searchA2dMatrix {
         while (top <= bot) {
 
             mid = bot + (top - bot) / 2;
+
             if (target > matrix[mid][matrix[0].length - 1])
                 top = mid + 1;
             else if (target < matrix[mid][0])
@@ -35,16 +36,22 @@ public class searchA2dMatrix {
             return false;
 
         int l = 0, r = matrix[0].length - 1, m = 0;
+
         while (l <= r) {
+
             m = r + (l - r) / 2;
+
             if (target > matrix[mid][m])
                 l = m + 1;
             else if (target < matrix[mid][m])
                 r = m - 1;
             else
                 return true;
+
         }
 
         return false;
+
     }
+
 }

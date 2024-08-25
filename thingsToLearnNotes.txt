@@ -219,3 +219,7 @@ Collections.max(map.values())
         int[] sortedArray = Arrays.copyOf(position, position.length);
         Arrays.sort(sortedArray);
         // Collections.reverse(Arrays.asList(reverseSortedArray));
+
+
+        store.get(key).add(new Pair<String,Integer>(value, timestamp));
+        No put required. put will update previous values
