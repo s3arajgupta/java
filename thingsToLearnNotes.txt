@@ -213,3 +213,5 @@ int pivotIndex = new Random().nextInt(r - l + 1) + l;
 // Explanation: The answer is "wke", with the length of 3.
 // Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 Collections.max(map.values())
+
+            System.out.println(new StringBuilder(s.substring(l, r + 1)));
