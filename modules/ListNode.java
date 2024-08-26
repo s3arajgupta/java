@@ -17,4 +17,30 @@ public class ListNode {
         this.next = next;
     }
 
+    public void printLinkedList(ListNode node) {
+
+        while (node.next != null) {
+            System.out.print(node.val + " -> ");
+            node = node.next;
+        }
+        System.out.print(node.val);
+        System.out.println();
+
+    }
+
+    public ListNode reverseList(ListNode head) {
+
+        ListNode curNode = head, nextNode = null, prevNode = null;
+
+        while (curNode != null) {
+            nextNode = curNode.next;
+            curNode.next = prevNode;
+            prevNode = curNode;
+            curNode = nextNode;
+        }
+
+        return prevNode;
+
+    }
+
 }

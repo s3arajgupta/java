@@ -1,9 +1,6 @@
-package practice.neetCode150.part6LinkedList.medium;
-// package practice.neetCode.linkedList.medium;
+// package practice.neetCode150.part6LinkedList.medium;
 
 // import java.util.HashMap;
-
-// import practice.neetCode.linkedList.ListNode;
 
 // // Definition for a Node.
 // class Node {
@@ -16,8 +13,11 @@ package practice.neetCode150.part6LinkedList.medium;
 //         this.next = null;
 //         this.random = null;
 //     }
+
 //     public Node(int val, ListNode next, ListNode random) {
-//         this.val = val; this.next = next; this.random = random;
+//         this.val = val;
+//         this.next = next;
+//         this.random = random;
 //     }
 // }
 
@@ -34,15 +34,15 @@ package practice.neetCode150.part6LinkedList.medium;
 //             oldToCopy.put(curr, newNode);
 //             curr = curr.next;
 //         }
-        
+
 //         curr = head;
-//         while (curr != null){
+//         while (curr != null) {
 //             oldToCopy.get(curr).next = oldToCopy.get(curr.next);
 //             oldToCopy.get(curr).random = oldToCopy.get(curr.random);
 //             curr = curr.next;
 //         }
 
 //         return oldToCopy.get(head);
-        
+
 //     }
 // }

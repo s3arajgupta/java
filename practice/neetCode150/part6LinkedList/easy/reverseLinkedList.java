@@ -1,5 +1,3 @@
-// Recursion version is left ?
-
 package practice.neetCode150.part6LinkedList.easy;
 
 import modules.ListNode;
@@ -8,35 +6,34 @@ public class reverseLinkedList {
 
     public static void main(String args[]) {
 
+        reverseLinkedList sol = new reverseLinkedList();
+
         ListNode node3 = new ListNode(3, null);
         ListNode node2 = new ListNode(2, node3);
         ListNode node1 = new ListNode(1, node2);
 
-        ListNode curr = node1;
-        while (curr != null) {
-            System.out.print(curr.val + " ");
-            curr = curr.next;
-        }
-
-        System.out.println();
-        curr = reverseList(node1);
-        while (curr != null) {
-            System.out.print(curr.val + " ");
-            curr = curr.next;
-        }
+        node1.printLinkedList(node1);
+        node1 = sol.reverseList(node1);
+        // node1 = node1.reverseList(node1);
+        node1.printLinkedList(node1);
 
     }
 
-    public static ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
 
-        ListNode curNode = head, nextNode = null, prevNode = null;
-        while (curNode != null) {
-            nextNode = curNode.next;
-            curNode.next = prevNode;
-            prevNode = curNode;
-            curNode = nextNode;
-        }
-        return prevNode;
+        return dfs(head, null);
+
+    }
+
+    public ListNode dfs(ListNode node, ListNode prev) {
+
+        if (node == null)
+            return prev;
+
+        ListNode nextNode = node.next;
+        node.next = prev;
+
+        return dfs(nextNode, node);
 
     }
 

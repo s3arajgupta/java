@@ -223,3 +223,9 @@ Collections.max(map.values())
 
         store.get(key).add(new Pair<String,Integer>(value, timestamp));
         No put required. put will update previous values
+
+// In the case of languages like Java, Python, and Javascript, there is no need for the deletion of objects or nodes because these have an automatic garbage collection mechanism that automatically identifies and reclaims memory that is no longer in use.
+        // lists.add(Arrays.asList(1, 4, 5));
+
+Internals of Data Structures
+        final ListNode root = new ListNode(0, head);
