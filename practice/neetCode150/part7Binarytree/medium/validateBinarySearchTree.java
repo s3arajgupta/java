@@ -26,9 +26,12 @@ public class validateBinarySearchTree {
     }
 
     public boolean isValidBST(TreeNode root) {
+
         if (root == null)
             return true;
+
         return dfs(root, null, null);
+
     }
 
     public boolean dfs(TreeNode root, Integer min, Integer max) { // ninja

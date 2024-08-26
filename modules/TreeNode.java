@@ -21,14 +21,21 @@ public class TreeNode {
 
     public void printTree(TreeNode root) {
 
-        if (root == null) {
+        dfs(root);
+        System.out.println();
+
+    }
+
+    public void dfs(TreeNode node) {
+
+        if (node == null) {
             System.out.print("null ");
             return;
         }
 
-        System.out.print(root.val + " ");
-        printTree(root.left);
-        printTree(root.right);
+        System.out.print(node.val + " ");
+        dfs(node.left);
+        dfs(node.right);
 
     }
 

@@ -23,21 +23,28 @@ class kthLargest {
 
         this.heap = new PriorityQueue<>();
         this.k = k;
-        for (int i : nums) // O(n)
+
+        for (int i : nums)
             add(i);
-        // System.out.println(heap);
 
     }
 
     public int add(int val) {
+
         if (heap.size() < k)
             heap.offer(val);
+
         else if (val > heap.peek()) { // smallest element
+
             heap.poll(); // remove the top/smallest element
             heap.add(val); // add the new element
+
         }
+
         return heap.peek();
+
     }
+
 }
 
 /**

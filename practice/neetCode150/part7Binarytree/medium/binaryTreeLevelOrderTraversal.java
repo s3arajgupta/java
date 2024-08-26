@@ -1,10 +1,6 @@
 package practice.neetCode150.part7Binarytree.medium;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
-
+import java.util.*;
 import modules.TreeNode;
 
 public class binaryTreeLevelOrderTraversal {
@@ -23,28 +19,38 @@ public class binaryTreeLevelOrderTraversal {
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
 
-        List<List<Integer>> res = new ArrayList<>();
         if (root == null)
-            return res;
+            return new ArrayList<>();
 
+        List<List<Integer>> res = new ArrayList<>();
         Deque<TreeNode> deque = new LinkedList<>();
+
         deque.add(root);
 
         while (deque.size() != 0) { // ninja
+
             List<Integer> lvl = new ArrayList<>();
             int size = deque.size();
+
             for (int i = 0; i < size; i++) {
+
                 TreeNode node = deque.removeFirst();
+
                 if (node.left != null)
                     deque.add(node.left);
                 if (node.right != null)
                     deque.add(node.right);
+
                 lvl.add(node.val);
+
             }
+
             res.add(lvl);
+
         }
 
         return res;
+
     }
 
 }

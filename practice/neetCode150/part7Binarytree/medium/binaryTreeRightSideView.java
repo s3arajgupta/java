@@ -1,7 +1,6 @@
 package practice.neetCode150.part7Binarytree.medium;
 
 import java.util.*;
-
 import modules.TreeNode;
 
 public class binaryTreeRightSideView {
@@ -21,23 +20,29 @@ public class binaryTreeRightSideView {
 
     public static List<Integer> rightSideView(TreeNode root) {
 
-        List<Integer> list = new ArrayList<>();
-
         if (root == null)
-            return list;
+            return new ArrayList<>();
+
+        List<Integer> list = new ArrayList<>();
         Deque<TreeNode> deque = new LinkedList<>();
+
         deque.add(root);
 
         while (deque.size() != 0) {
+
             int size = deque.size();
+
             for (int i = 0; i < size; i++) {
+
                 TreeNode node = deque.removeFirst();
+
                 if (i == size - 1)
                     list.add(node.val);
                 if (node.left != null)
                     deque.add(node.left);
                 if (node.right != null)
                     deque.add(node.right);
+
             }
 
         }

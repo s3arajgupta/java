@@ -1,7 +1,6 @@
 package practice.neetCode150.part7Binarytree.easy;
 
 import java.util.*;
-
 import modules.*;
 
 public class maximumDepthOfBinaryTree {
@@ -14,62 +13,82 @@ public class maximumDepthOfBinaryTree {
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
 
-        System.out.println("Max Depth of tree is: " + maxDepth(root));
+        System.out.println(maxDepth(root));
 
     }
 
-    // public static int maxDepth(TreeNode root){
-
-    // if (root == null) return 0;
-
-    // Deque<TreeNode> deque = new LinkedList<>();
-    // deque.add(root);
-    // int lvl = 0;
-
-    // while (!deque.isEmpty()) {
-
-    // for (int i = 0; i < deque.size(); i++) {
-    // TreeNode node = deque.removeFirst();
-    // if (node.left != null) deque.add(node.left);
-    // if (node.right != null) deque.add(node.right);
-    // }
-    // lvl += 1;
-
-    // }
-    // return lvl;
-
-    // }
-
     public static int maxDepth(TreeNode root) {
 
-        int depth = 0;
-        Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
-        stack.add(new Pair<TreeNode, Integer>(root, 1));
+        if (root == null)
+            return 0;
 
-        while (!stack.isEmpty()) {
+        Deque<TreeNode> deque = new LinkedList<>();
+        int lvl = 0, size = 0;
 
-            Pair<TreeNode, Integer> p = stack.pop();
-            TreeNode temp = p.getFirst();
-            int tempDepth = p.getSecond();
+        deque.add(root);
 
-            if (temp != null) {
-                depth = Math.max(depth, tempDepth);
-                stack.add(new Pair<TreeNode, Integer>(temp.left, tempDepth + 1));
-                stack.add(new Pair<TreeNode, Integer>(temp.right, tempDepth + 1));
+        while (!deque.isEmpty()) {
+
+            size = deque.size();
+
+            for (int i = 0; i < size; i++) {
+
+                TreeNode node = deque.removeFirst();
+
+                if (node.left != null)
+                    deque.add(node.left);
+                if (node.right != null)
+                    deque.add(node.right);
+
             }
+
+            lvl += 1;
+
         }
-        return depth;
+
+        return lvl;
 
     }
 
     // public static int maxDepth(TreeNode root) {
 
-    // if (root == null)
-    // return 0;
-    // int leftHeight = maxDepth(root.left);
-    // int rightHeight = maxDepth(root.right);
+    //     if (root == null)
+    //         return 0;
 
-    // return Math.max(leftHeight, rightHeight) + 1;
+    //     Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
+    //     int lvl = 0;
+
+    //     stack.add(new Pair<TreeNode, Integer>(root, 1));
+
+    //     while (!stack.isEmpty()) {
+
+    //         Pair<TreeNode, Integer> p = stack.pop();
+    //         TreeNode temp = p.getFirst();
+    //         int tempDepth = p.getSecond();
+
+    //         if (temp != null) {
+
+    //             lvl = Math.max(lvl, tempDepth);
+    //             stack.add(new Pair<TreeNode, Integer>(temp.left, tempDepth + 1));
+    //             stack.add(new Pair<TreeNode, Integer>(temp.right, tempDepth + 1));
+
+    //         }
+
+    //     }
+
+    //     return lvl;
+
+    // }
+
+    // public static int maxDepth(TreeNode root) {
+
+    //     if (root == null)
+    //         return 0;
+
+    //     int leftHeight = maxDepth(root.left);
+    //     int rightHeight = maxDepth(root.right);
+
+    //     return Math.max(leftHeight, rightHeight) + 1;
 
     // }
 

@@ -229,3 +229,7 @@ Collections.max(map.values())
 
 Internals of Data Structures
         final ListNode root = new ListNode(0, head);
+
+
+        if (root == null || k <= 0) { // they might not give any constrainst
+import java.util.Random;

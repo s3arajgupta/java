@@ -14,9 +14,9 @@ public class invertBinaryTree {
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
 
-        System.out.println(root);
+        root.printTree(root);
         root = sol.invertTree(root);
-        System.out.println(root);
+        root.printTree(root);
 
     }
 
@@ -29,6 +29,7 @@ public class invertBinaryTree {
 
         node.right = invertTree(root.left);
         node.left = invertTree(root.right);
+
         return node;
 
     }
