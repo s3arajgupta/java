@@ -233,3 +233,4 @@ Internals of Data Structures
 
         if (root == null || k <= 0) { // they might not give any constrainst
 import java.util.Random;
+        boolean temp = minHeap.size() >= maxHeap.size() ? maxHeap.add(num) : minHeap.add(num);
