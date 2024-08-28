@@ -234,3 +234,21 @@ Internals of Data Structures
         if (root == null || k <= 0) { // they might not give any constrainst
 import java.util.Random;
         boolean temp = minHeap.size() >= maxHeap.size() ? maxHeap.add(num) : minHeap.add(num);
+
+
+// Focus on which data structures to use and the trade between them. - Design Twitter
+
+Parameters:
+
+key: The key with which the specified value is to be associated.
+value: The value to be merged with the existing value associated with the key.
+remappingFunction: A function that combines the existing value and the new value to produce a new value for the key.
+Returns: The new value associated with the key, or null if none.
+
+How It Works:
+
+If the key is not present in the map, the value is inserted directly.
+If the key is present, the remappingFunction is applied to combine the existing value and the new value. The result is stored back in the map.
+
+maxHeap.offer(new int[] { tweet[0], tweet[1],
+                        followeeId, --i });
