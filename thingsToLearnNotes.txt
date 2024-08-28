@@ -252,3 +252,11 @@ If the key is present, the remappingFunction is applied to combine the existing 
 
 maxHeap.offer(new int[] { tweet[0], tweet[1],
                         followeeId, --i });
+
+        // Collections.reverse(Arrays.asList(candidates)); // not necessary but it feels
+        // good to write.
+
+    boolean[] used; // default is false.
+            Arrays.fill(row, '.'); // ninja
+
+        temp.set(row, new String(arr));

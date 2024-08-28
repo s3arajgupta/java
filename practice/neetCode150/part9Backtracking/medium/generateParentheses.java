@@ -7,20 +7,21 @@ public class generateParentheses {
     public static void main(String args[]) {
 
         generateParentheses sol = new generateParentheses();
+
+        System.out.println(sol.generateParenthesis(10));
         System.out.println(sol.generateParenthesis(3));
         System.out.println(sol.generateParenthesis(0));
 
     }
 
-    private List<String> res;
-    private Stack<String> stack;
+    List<String> res;
+    Stack<String> stack;
 
     public List<String> generateParenthesis(int n) {
 
-        List<String> res = new ArrayList<>();
-        Stack<String> stack = new Stack<>();
-        this.res = res;
-        this.stack = stack;
+        res = new ArrayList<>();
+        stack = new Stack<>();
+
         backtracking(0, 0, n);
         return res;
 
@@ -31,6 +32,7 @@ public class generateParentheses {
         if (open == n && close == n) {
 
             StringBuilder str = new StringBuilder();
+
             for (String s : stack)
                 str.append(s);
 

@@ -1,4 +1,4 @@
-package practice.neetCode150.part8HeapPriorityQueue.medium;
+package practice.neetCode150.part8HeapPriorityQueue.hard;
 
 import java.util.*;
 

@@ -6,35 +6,38 @@ public class subsets {
 
     public static void main(String[] args) {
 
+        subsets sol = new subsets();
+
         int[] nums = { 1, 2, 3 };
-        System.out.println(subsetsFunc(nums));
+        System.out.println(sol.subsetsFunc(nums));
 
     }
 
-    private static List<List<Integer>> res; // ninja
-    private static List<Integer> temp; // ninja
+    List<List<Integer>> res;
+    List<Integer> temp;
 
-    public static List<List<Integer>> subsetsFunc(int[] nums) {
+    public List<List<Integer>> subsetsFunc(int[] nums) {
 
         res = new ArrayList<>();
         temp = new ArrayList<>();
+
         backtracking(0, nums);
         return res;
 
     }
 
-    public static void backtracking(int n, int[] nums) {
+    public void backtracking(int n, int[] nums) {
 
-        if (n == nums.length) { // n == nums.length but temp = nums.length - 1, therefore inbounds
+        if (n == nums.length) {
+
             res.add(new ArrayList<>(temp));
             return;
+
         }
 
-        // include index n in temp
         temp.add(nums[n]);
         backtracking(n + 1, nums);
 
-        // remove index n from temp
         temp.remove(temp.size() - 1);
         backtracking(n + 1, nums);
 
