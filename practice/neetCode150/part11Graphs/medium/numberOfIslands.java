@@ -1,4 +1,4 @@
-package practice.neetCode150.part10Graphs.medium;
+package practice.neetCode150.part11Graphs.medium;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package practice.neetCode150.part7Binarytree.hard;
+package practice.neetCode150.part7Trees.hard;
 
 import java.util.*;
 import modules.TreeNode;

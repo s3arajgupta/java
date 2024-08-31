@@ -1,4 +1,4 @@
-package practice.neetCode150.part7Binarytree.easy;
+package practice.neetCode150.part7Trees.easy;
 
 import modules.TreeNode;
 
