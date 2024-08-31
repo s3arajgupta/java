@@ -1,9 +1,7 @@
-// Brainstrom BFS
-
 package practice.neetCode150.part7Binarytree.hard;
 
-import modules.TreeNode;
 import java.util.*;
+import modules.TreeNode;
 
 public class serializeAndDeserializeBinaryTree {
 
@@ -15,153 +13,149 @@ public class serializeAndDeserializeBinaryTree {
         root.right.left = new TreeNode(4);
         root.right.right = new TreeNode(5);
 
-        serializeAndDeserializeBinaryTree ser = new serializeAndDeserializeBinaryTree();
-        serializeAndDeserializeBinaryTree deser = new serializeAndDeserializeBinaryTree();
-        TreeNode ans = deser.deserialize(ser.serialize(root));
-        printTree(ans);
+        serializeAndDeserializeBinaryTree obj = new serializeAndDeserializeBinaryTree();
+
+        System.out.println(obj.serialize(root));
+        TreeNode ans = obj.deserialize(obj.serialize(root));
+        ans.printTree(ans);
+
     }
 
-    public static void printTree(TreeNode root) {
-
-        System.out.println("Output");
-        if (root == null)
-            return;
-        Deque<TreeNode> deque = new LinkedList<>();
-        deque.add(root);
-        while (!deque.isEmpty()) {
-            int size = deque.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = deque.removeFirst();
-                System.out.print(node.val + " ");
-                if (node.left != null)
-                    deque.add(node.left);
-                if (node.right != null)
-                    deque.add(node.right);
-            }
-            System.out.println();
-        }
-    }
-
-    private int i;
-
-    // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
 
         if (root == null)
             return "";
+
         List<String> list = new ArrayList<>();
         serializeDFS(root, list);
 
-        return String.join("#", list);
+        // list = new ArrayList<>();
+        // serializeBFS(root, list);
+
+        return String.join(",", list);
 
     }
 
     public void serializeDFS(TreeNode root, List<String> list) {
 
         if (root == null) {
+
             list.add("N");
             return;
+
         }
 
         list.add(String.valueOf(root.val));
+
         serializeDFS(root.left, list);
         serializeDFS(root.right, list);
 
     }
 
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public void serializeBFS(TreeNode root, List<String> list) {
 
-        if (data == null || data.isEmpty()) {
-            System.out.println("*" + data + "*");
-            return null;
+        if (root == null)
+            return;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+
+            TreeNode node = queue.poll();
+
+            if (node == null) {
+
+                list.add("N");
+                continue;
+
+            }
+
+            list.add(String.valueOf(node.val));
+
+            queue.add(node.left);
+            queue.add(node.right);
+
         }
 
-        String parts[] = data.split("#"); // ninja
-        if (parts.length == 0)
-            return new TreeNode();
-        i = 0; // resets i before calling again.
+    }
+
+    int n;
+
+    public TreeNode deserialize(String str) {
+
+        if (str == null || str.isEmpty())
+            return null;
+
+        String parts[] = str.split(",");
+
+        this.n = 0;
+
         return deserializeDFS(parts);
+        // return deserializeBFS(parts);
 
     }
 
     public TreeNode deserializeDFS(String[] parts) {
 
-        if (i >= parts.length){
-            System.out.println("*" + parts.length + "*");
-            System.out.println("*" + i + "*");
+        if (parts.length <= n)
             return null;
-        }
 
-        String part = parts[this.i];
+        String part = parts[this.n];
 
-        if (part.equals("N")) { // ninja
-            this.i++;
+        if (part.equals("N")) {
+
+            this.n++;
             return null;
+
         }
 
         TreeNode node = new TreeNode(Integer.parseInt(part));
-        this.i++; // ninja
+        this.n++;
+
         node.left = deserializeDFS(parts);
         node.right = deserializeDFS(parts);
 
         return node;
+
     }
 
-    // // Encodes a tree to a single string.
-    // public String serialize(TreeNode root) {
+    public TreeNode deserializeBFS(String[] parts) {
 
-    // if (root == null)
-    // return "";
+        if (parts.length == 0)
+            return null;
 
-    // StringBuilder res = new StringBuilder();
-    // Deque<TreeNode> deque = new LinkedList<>();
-    // deque.add(root);
+        TreeNode root = new TreeNode(Integer.parseInt(parts[0]));
 
-    // while (!deque.isEmpty()) {
-    // int size = deque.size();
-    // for (int i = 0; i < size; i++) {
-    // TreeNode node = deque.removeFirst();
-    // res.append(String.valueOf(node.val) + "#");
-    // if (node.left != null)
-    // deque.add(node.left);
-    // else
-    // res.append("N#");
-    // if (node.right != null)
-    // deque.add(node.right);
-    // else
-    // res.append("N#");
-    // }
-    // System.out.println(res);
-    // }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
 
-    // return res.toString();
+        int i = 1;
 
-    // }
+        while (!queue.isEmpty() && i < parts.length) {
 
-    // // Decodes your encoded data to tree.
-    // public TreeNode deserialize(String data) {
+            TreeNode node = queue.poll();
 
-    // String parts[] = data.split("#"); // ninja
-    // if (parts.length == 0)
-    // return new TreeNode();
+            if (!parts[i].equals("N")) {
 
-    // Deque<String> deque = new LinkedList<>();
-    // deque.add(parts[0]);
-    // int c = 0;
-    // while (!deque.isEmpty()) {
-    // int size = deque.size();
-    // for (int i = 0; i < size; i++) {
-    // TreeNode node = new TreeNode(Integer.parseInt(parts[c]));
-    // }
-    // }
+                node.left = new TreeNode(Integer.parseInt(parts[i]));
+                queue.add(node.left);
 
-    // return new TreeNode();
+            }
+            i++;
 
-    // }
+            if (i < parts.length && !parts[i].equals("N")) {
+
+                node.right = new TreeNode(Integer.parseInt(parts[i]));
+                queue.add(node.right);
+
+            }
+            i++;
+
+        }
+
+        return root;
+
+    }
+
 }
-
-// Your Codec object will be instantiated and called as such:
-// Codec ser = new Codec();
-// Codec deser = new Codec();
-// TreeNode ans = deser.deserialize(ser.serialize(root));

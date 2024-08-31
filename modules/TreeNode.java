@@ -19,9 +19,16 @@ public class TreeNode {
         this.right = right;
     }
 
-    public void printTree(TreeNode root) {
+    public void printTree(TreeNode node) {
 
-        dfs(root);
+        if (node == null) {
+
+            System.out.println("Empty Tree!!");
+            return;
+
+        }
+
+        dfs(node);
         System.out.println();
 
     }
@@ -29,11 +36,11 @@ public class TreeNode {
     public void dfs(TreeNode node) {
 
         if (node == null) {
-            System.out.print("null ");
+            System.out.print("null,");
             return;
         }
 
-        System.out.print(node.val + " ");
+        System.out.print(node.val + ",");
         dfs(node.left);
         dfs(node.right);
 
