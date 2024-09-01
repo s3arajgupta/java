@@ -7,34 +7,33 @@ public class coinChange {
     public static void main(String[] args) {
 
         coinChange sol = new coinChange();
-        // int[] coins = { 1, 2, 5 };
-        // System.out.println(sol.coinChangeFunc(coins, 11));
-        int[] coins = { 2 };
-        System.out.println(sol.coinChangeFunc(coins, 3));
+
+        int[] coins = { 1, 2, 5 };
+        System.out.println(sol.coinChangeFunc(coins, 11));
+        // int[] coins = { 2 };
+        // System.out.println(sol.coinChange(coins, 3));
 
     }
 
     public int coinChangeFunc(int[] coins, int amount) {
 
-        if (amount < 0 || coins.length == 0 || coins == null)
-            return -1;
-
         int[] dp = new int[amount + 1];
-        int n = dp.length;
-        Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1); // max value
 
-        dp[0] = 0;
+        dp[0] = 0; // base case: 0 coins needed to make amount 0
 
-        for (int a = 1; a < n; a++) {
+        for (int i = 1; i < dp.length; i++) {
+
             for (int c : coins) {
 
-                if (a - c >= 0)
-                    dp[a] = Math.min(dp[a], 1 + dp[a - c]); // Recurrence relation
+                if (i - c >= 0) // non-negative
+                    dp[i] = Math.min(dp[i], 1 + dp[i - c]); // Recurrence relation
 
             }
+
         }
 
-        return dp[amount] == amount + 1 ? -1 : dp[amount];
+        return dp[amount] == amount + 1 ? -1 : dp[amount]; // amount + 1 is default
 
     }
 

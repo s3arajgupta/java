@@ -281,3 +281,6 @@ public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
 
         List<String> words = new ArrayList<>(Arrays.asList("oath", "eat"));
+
+
+        int sum = Arrays.stream(nums).sum();
