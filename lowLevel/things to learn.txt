@@ -1,0 +1,63 @@
+When preparing for interviews, especially for roles like software engineering or data engineering, there are a few fundamental and commonly asked low-level design problems you should be familiar with. These problems help interviewers assess your understanding of object-oriented principles, design patterns, and your ability to translate requirements into code. Here’s a list of some of the most important ones:
+
+### 1. **Design a Parking Lot System**
+   - **Concepts Covered:** Object-oriented design, handling state, associations, and relationships between classes.
+   - **Key Components:** Parking spots, vehicles, parking lot, entry/exit points, payment system.
+   - **Common Patterns:** Strategy Pattern (for calculating parking fees), Singleton Pattern (for managing a single parking lot).
+
+### 2. **Design a Library Management System**
+   - **Concepts Covered:** Class hierarchies, relationships, and basic CRUD operations.
+   - **Key Components:** Books, users, borrowing transactions, fines.
+   - **Common Patterns:** Singleton Pattern (for the library instance), Factory Pattern (for creating different types of books or users).
+
+### 3. **Design an Online Bookstore**
+   - **Concepts Covered:** E-commerce basics, inventory management, order processing.
+   - **Key Components:** Products (books), users, orders, payments, shopping cart.
+   - **Common Patterns:** Observer Pattern (for notifying users about stock changes), Factory Pattern (for creating orders), Singleton Pattern (for managing the store inventory).
+
+### 4. **Design an ATM System**
+   - **Concepts Covered:** State machines, user interactions, secure transaction processing.
+   - **Key Components:** ATM machine, user account, transactions, card reader, cash dispenser.
+   - **Common Patterns:** State Pattern (for handling ATM states like card insertion, PIN entry), Strategy Pattern (for different types of transactions like withdrawal, deposit).
+
+### 5. **Design a Ride-Sharing Service (like Uber)**
+   - **Concepts Covered:** Real-time systems, location tracking, matching algorithms.
+   - **Key Components:** Drivers, riders, rides, payments, maps, and location services.
+   - **Common Patterns:** Observer Pattern (for updating ride status), Strategy Pattern (for pricing algorithms), Singleton Pattern (for managing the ride-sharing service).
+
+### 6. **Design a Social Media Feed (like Twitter or Facebook)**
+   - **Concepts Covered:** Feed generation, user interactions, notifications.
+   - **Key Components:** Users, posts, likes, comments, feeds, notifications.
+   - **Common Patterns:** Observer Pattern (for notifications), Factory Pattern (for creating posts, comments), Composite Pattern (for hierarchical user interactions).
+
+### 7. **Design a File Storage System (like Google Drive or Dropbox)**
+   - **Concepts Covered:** File management, directory structure, permissions.
+   - **Key Components:** Files, folders, users, permissions, sharing.
+   - **Common Patterns:** Composite Pattern (for file and directory structure), Singleton Pattern (for managing storage).
+
+### 8. **Design a Movie Ticket Booking System**
+   - **Concepts Covered:** Booking management, seat allocation, payments.
+   - **Key Components:** Movies, theaters, shows, seats, users, payments.
+   - **Common Patterns:** Strategy Pattern (for seat pricing), Singleton Pattern (for managing the booking system).
+
+### 9. **Design a Hotel Reservation System**
+   - **Concepts Covered:** Reservation management, room allocation, payments.
+   - **Key Components:** Rooms, reservations, users, payments.
+   - **Common Patterns:** Factory Pattern (for creating reservations), Singleton Pattern (for managing hotel inventory).
+
+### 10. **Design a Restaurant Management System**
+   - **Concepts Covered:** Order management, table reservations, billing.
+   - **Key Components:** Menu, orders, tables, customers, billing.
+   - **Common Patterns:** Observer Pattern (for order notifications), Factory Pattern (for creating orders), Singleton Pattern (for managing restaurant operations).
+
+### Key Principles to Apply:
+- **SOLID Principles**: Ensure that your design adheres to these principles for maintainability and scalability.
+- **Design Patterns**: Be prepared to identify and implement appropriate design patterns based on the problem requirements.
+- **UML Diagrams**: Know how to represent your designs using Class Diagrams, Sequence Diagrams, etc., to communicate your ideas effectively.
+
+### Preparation Tips:
+- **Practice Designing:** Pick each system, understand the requirements, and draw out the UML diagrams before coding.
+- **Mock Interviews:** Conduct mock interviews focusing on low-level design problems to get feedback and refine your approach.
+- **Code Reviews:** Write the code and get it reviewed by peers or mentors to identify areas of improvement.
+
+Mastering these fundamental designs will give you a solid foundation and the confidence to tackle more complex systems during interviews.
