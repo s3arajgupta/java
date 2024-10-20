@@ -1,9 +1,5 @@
 package practice.neetCode150.part11Graphs.medium;
 
-import java.util.*;
-
-import modules.Pair;
-
 public class numberOfIslands {
 
     public static void main(String[] args) {
@@ -19,70 +15,54 @@ public class numberOfIslands {
 
     }
 
-    private int island;
-    private char[][] grid;
-    private HashSet<Pair<Integer, Integer>> visited;
-    private Pair<Integer, Integer> pair;
-    private Deque<Pair<Integer, Integer>> deque;
-    public List<Pair<Integer, Integer>> directions;
+    int island;
+    int m;
+    int n;
+    boolean[][] visited;
 
     public int numIslands(char[][] grid) {
 
-        if (grid.length == 0 && grid[0].length == 0)
-            return 0;
-
         island = 0;
-        this.grid = grid;
-        visited = new HashSet<>();
-        System.out.println(visited);
-        List<Pair<Integer, Integer>> directions = new ArrayList<>();
-        directions.add(new Pair<Integer, Integer>(1, 0));
-        directions.add(new Pair<Integer, Integer>(-1, 0));
-        directions.add(new Pair<Integer, Integer>(0, 1));
-        directions.add(new Pair<Integer, Integer>(0, -1));
-        this.directions = directions;
+        m = grid.length;
+        n = grid[0].length;
+        visited = new boolean[m][n];
 
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                pair = new Pair<Integer, Integer>(i, j);
-                if (grid[i][j] == '1' && !visited.contains(pair)) {
+        for (int i = 0; i < m; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                if (!visited[i][j] && grid[i][j] == '1') {
+
                     island++;
-                    System.out.println("hel");
-                    bfs(i, j);
-                    // deque.removeAll(deque);
+                    sizeOfIslands(visited, grid, i, j);
+
                 }
+
             }
+
         }
 
         return island;
 
     }
 
-    public void bfs(int i, int j) {
+    public void sizeOfIslands(boolean[][] visited, char[][] grid, int i, int j) {
 
-        deque = new LinkedList<>();
-        visited.add(new Pair<Integer, Integer>(i, j));
-        deque.add(new Pair<Integer, Integer>(i, j));
+        if (i < 0 ||
+                j < 0 ||
+                i == m ||
+                j == n)
+            return;
 
-        // int size = deque.size();
-        while (!deque.isEmpty()) {
+        if (visited[i][j] || grid[i][j] == '0')
+            return;
 
-            pair = deque.removeFirst();
-            for (int d = 0; d < directions.size(); d++) {
-                Pair<Integer, Integer> temp = new Pair<Integer, Integer>(directions.get(d).getFirst() + pair.getFirst(),
-                        directions.get(d).getSecond() + pair.getSecond());
-                if (temp.getFirst() >= 0 && temp.getSecond() >= 0
-                        && temp.getFirst() < grid.length
-                        && temp.getSecond() < grid[0].length
-                        && grid[pair.getFirst() + directions.get(d).getFirst()][pair.getSecond()
-                                + directions.get(d).getSecond()] == '1'
-                        && !visited.contains(temp)) {
-                    deque.add(temp);
-                    visited.add(temp);
-                }
-            }
+        visited[i][j] = true;
 
-        }
+        sizeOfIslands(visited, grid, i + 1, j);
+        sizeOfIslands(visited, grid, i - 1, j);
+        sizeOfIslands(visited, grid, i, j + 1);
+        sizeOfIslands(visited, grid, i, j - 1);
 
     }
 
