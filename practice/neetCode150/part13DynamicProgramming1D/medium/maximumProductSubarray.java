@@ -1,4 +1,4 @@
-package practice.neetCode150.part13dp.medium;
+package practice.neetCode150.part13DynamicProgramming1D.medium;
 
 public class maximumProductSubarray {
 

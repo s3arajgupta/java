@@ -1,4 +1,4 @@
-package practice.neetCode150.part13dp.easy;
+package practice.neetCode150.part13DynamicProgramming1D.easy;
 
 public class minCostClimbingStairs {
 
