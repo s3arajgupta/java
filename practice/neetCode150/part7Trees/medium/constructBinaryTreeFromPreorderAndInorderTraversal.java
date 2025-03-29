@@ -28,7 +28,7 @@ public class constructBinaryTreeFromPreorderAndInorderTraversal {
         map = new HashMap<>();
 
         for (int i = 0; i < inorder.length; i++)
-            map.put(inorder[i], i);
+            map.put(inorder[i], i); // all values distinct
 
         return builder(preorder, 0, 0, inorder.length - 1);
 
@@ -36,7 +36,9 @@ public class constructBinaryTreeFromPreorderAndInorderTraversal {
 
     public TreeNode builder(int[] preorder, int preorderIndex, int inorderLow, int inorderHigh) {
 
-        if (preorderIndex > preorder.length - 1 || inorderLow > inorderHigh)
+        if (preorderIndex > preorder.length - 1 || inorderLow > inorderHigh) // preorderIndex > preorder.length - 1 left
+                                                                             // tree base condition // inorderLow >
+                                                                             // inorderHigh right tree base condition
             return null;
 
         int curr = preorder[preorderIndex];
