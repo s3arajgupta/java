@@ -12,55 +12,36 @@ public class encodeandDecodeStrings {
         System.out.println("io: " + strs);
 
         String s = encode(strs);
-        System.out.println("en: " + s);
+        System.out.println("encode: " + s);
 
         strs = decode(s);
-        System.out.println("de: " + strs);
+        System.out.println("decode: " + strs);
 
     }
 
     public static String encode(List<String> strs) {
 
-        StringBuilder str = new StringBuilder();
+        StringBuilder res = new StringBuilder();
 
         for (int i = 0; i < strs.size(); i++)
-            str = str.append(strs.get(i).length() + "#").append(strs.get(i));
+            res = res.append(strs.get(i).length() + "#" + strs.get(i));
 
-        return str.toString();
+        return res.toString();
 
     }
 
     public static List<String> decode(String str) {
 
-        int checkpoint = 0;
         List<String> res = new ArrayList<>();
 
         for (int i = 0; i < str.length(); i++) {
 
-            if (str.charAt(i) == '#') {
+            int checkpoint = str.indexOf("#", i); // Find the next '#'
+            int digitLength = Integer.parseInt(str.substring(i, checkpoint));
+            String valueStr = new String(str.substring(checkpoint + 1, checkpoint + digitLength + 1));
 
-                StringBuilder digitStr = new StringBuilder();
-
-                for (int j = checkpoint; j < i; j++)
-                    digitStr.append(str.charAt(j));
-
-                int intParser = Integer.parseInt(digitStr.toString());
-                digitStr.setLength(0);
-
-                StringBuilder valueStr = new StringBuilder();
-
-                while (intParser > 0) {
-                    valueStr.append(str.charAt(i + 1));
-                    i++;
-                    intParser--;
-                }
-
-                res.add(valueStr.toString());
-                valueStr.setLength(0);
-
-                checkpoint = i + 1;
-
-            }
+            res.add(valueStr);
+            i = checkpoint + digitLength;
 
         }
 
