@@ -304,3 +304,77 @@ SC of Graph DFS = O(N)(dfs) + O(N)(visited) + O(N)(Stack Space)
 https://leetcode.com/problems/design-a-number-container-system/
 numberToIndex.putIfAbsent(number, new TreeSet<>()); // smallest first
 return numberToIndex.get(number).first();
+
+        tempStack.addAll(stack);
+        Arrays.fill(lps, 0);
+            String left = String.substring(i, j); 
+                str.append(Integer.toString(inc));
+        return stack.get(0);
+                int val = Integer.parseInt(traversal.substring(i, j));
+
+        for (int i = 0; i < n; i++){
+            // List<Integer> list = adjacencyList.getOrDefault(i, new ArrayList<>());
+            // list.add(edges[1]);
+            // adjacencyList.put(i, list);
+
+            adjacencyList.computeIfAbsent(i, k-> new ArrayList<>()).add(edges[1]);
+
+        }
+
+List<int[2] Integer> = new ArrayList<>();
+List<int[]> list = new ArrayList<>();
+list.add(new int[]{1, 2});
+
+Math.pow(a, b)
+        res = 1 + (long) n * (n - 1) * 2;
+        while (--n > 0) {
+
+for (int i = 2; i <= Math.sqrt(n); i++) { // Optimize using sqrt
+            if (n % i == 0) {
+                return false; // Found a divisor, not prime
+            }
+        }
+
+    System.out.printf("Area: %.3f %n", circle.area());
+        PriorityQueue<Integer> pq = new PriorityQueue<>(map.keySet());
+
+            checkRecipe(recipe, ingredients, new HashSet<String>(), availableSupplies, recipeMap);
+       List<Integer>[] graph = new ArrayList[n];
+This is useful if you know n beforehand and want to avoid dynamic resizing.
+        List<List<Integer>> graph = new ArrayList<>(); // slower dynamic resizing
+                String temp = s.substring(l, lastCheckpoint);
+String substr = str.substring(0, 12);
+            res[i] = Integer.bitCount(i);
+        // int allOnes = 1 << n; // initialize with allOnes
+
+get 1st value from a set
+set.iterator().next()
+        Random rand = new Random();
+String randomElement = items.get(random.nextInt(items.size()));
+                stack.add(new StringBuilder(word).reverse().toString());
+        arr.sort((a, b) -> b[0] - a[0]);
+                // map2.entrySet().removeIf(entry -> entry.getValue() == 0);
+        java.util.Map<Character, Character> closeToOpen = new java.util.HashMap<>();
+
+10^7 acceptable
+10^9 TLE
+
+        ((Parent) obj).show();  // Calls Parent's method
+
+class Child extends Parent {
+    void show() {
+        System.out.println("Child class method");
+    }
+
+    void callParentMethod() {
+        super.show();  // Calls Parent's method
+    }
+}
+
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.callParentMethod();  // Calls Parent's method
+    }
+if (i > 0 && nums[i] == nums[i - 1]) // tip
+condidtion 1 restricts condition 2
+                    res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[k])));

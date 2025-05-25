@@ -1,0 +1,24 @@
+count[ord(s[i]) - ord("a")] += 1
+for i, n in enumerate(nums):
+my_dict = defaultdict(list)
+my_dict2 = defaultdict(set)
+my_dict3 = defaultdict(int)
+            groupMap[tuple(count)].append(s)
+        return list(groupMap.values())
+TypeError: unhashable type: 'list'
+    ~~~~~~~~^^^^^^^
+    groupMap[count].append(s)
+Line 16 in groupAnagrams (Solution.py)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ret = Solution().groupAnagrams(param_1)
+Line 44 in _driver (Solution.py)
+    _driver()
+Line 59 in <module> (Solution.py)
+count = defaultdict(int)
+for num in nums:
+      count[num] += 1
+popleft()
+queue = deque()
+                # partition.reverse()
+                partition = partition[::-1]
+
