@@ -1,4 +1,4 @@
-// package streak;
+package streak;
 
 import java.util.PriorityQueue;
 

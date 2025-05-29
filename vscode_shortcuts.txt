@@ -1,7 +1,10 @@
+➤ Press Ctrl + K, then press Ctrl + 0, collapses all regions, including functions.
+➤ Ctrl + K, then Ctrl + 1 → folds level 1 blocks (usually top-level functions)
+➤ Ctrl + K, then Ctrl + 2 → folds level 2 blocks, and so on.
+
 @: to find functions
 Ctrl Shift + "."
 Ctrl Shift + "[]"
-
 
 Alt arrow: to move lines
 Alt Shift to copy lines
